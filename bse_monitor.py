@@ -126,9 +126,27 @@ def normalize(text: str) -> str:
     )
     text = re.sub(r"\d{2}/\d{2}/\d{4}\s+\d{1,2}:\d{2}(:\d{2})?", "<TS>", text)
     text = re.sub(r"as on\s+\d{1,2}:\d{2}(:\d{2})?", "as on <TS>", text, flags=re.IGNORECASE)
+    # Strip Akamai block-page reference IDs (defense in depth)
+    text = re.sub(r"Reference\s*#[\d.\w]+", "<REF>", text, flags=re.IGNORECASE)
+    text = re.sub(r"https://errors\.edgesuite\.net/[\d.\w]+", "<ERR_URL>", text)
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
+
+
+def looks_blocked(text: str) -> bool:
+    """Detect Akamai / generic anti-bot challenge pages."""
+    if not text or len(text) > 8000:
+        return False
+    indicators = (
+        "edgesuite.net",
+        "Reference #18.",
+        "Access Denied",
+        "You don't have permission to access",
+        "akamaihd.net",
+        "Pardon Our Interruption",
+    )
+    return any(s in text for s in indicators)
 
 
 def is_subscription_only_change(diff_lines: list[str]) -> bool:
@@ -175,18 +193,55 @@ async def fetch_rendered_text(url: str) -> str:
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
-            args=["--disable-blink-features=AutomationControlled"],
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--disable-features=IsolateOrigins,site-per-process",
+                "--disable-site-isolation-trials",
+                "--no-sandbox",
+            ],
         )
         context = await browser.new_context(
-            user_agent=("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/124.0.0.0 Safari/537.36"),
-            viewport={"width": 1366, "height": 900},
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1920, "height": 1080},
             locale="en-IN",
+            timezone_id="Asia/Kolkata",
+            extra_http_headers={
+                "Accept-Language": "en-US,en;q=0.9,hi;q=0.8",
+                "sec-ch-ua": '"Google Chrome";v="124", "Chromium";v="124", "Not-A.Brand";v="99"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"Windows"',
+                "Upgrade-Insecure-Requests": "1",
+            },
         )
+        # Stealth: hide common automation fingerprints
+        await context.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+            Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4,5]});
+            Object.defineProperty(navigator, 'languages', {get: () => ['en-US','en']});
+            window.chrome = { runtime: {} };
+            const originalQuery = window.navigator.permissions.query;
+            window.navigator.permissions.query = (parameters) => (
+                parameters.name === 'notifications'
+                    ? Promise.resolve({state: Notification.permission})
+                    : originalQuery(parameters)
+            );
+        """)
         page = await context.new_page()
+
+        # Warm up: visit homepage first so Akamai sets a session cookie
+        try:
+            await page.goto("https://www.bseindia.com/", wait_until="domcontentloaded", timeout=30_000)
+            await page.wait_for_timeout(2500)
+        except Exception as e:
+            print(f"  · warmup skipped: {e}")
+
+        # Now hit the actual target
         await page.goto(url, wait_until="networkidle", timeout=60_000)
-        await page.wait_for_timeout(3500)
+        await page.wait_for_timeout(4000)
         try:
             text = await page.locator("body").inner_text()
         except Exception:
@@ -207,6 +262,13 @@ async def check_one(ipo: dict, state: dict) -> None:
         return
 
     norm = normalize(raw)
+
+    # If we got an Akamai/anti-bot block page, do NOT update state or alert.
+    # Leaving state untouched means next successful fetch will diff correctly.
+    if looks_blocked(raw):
+        print(f"  ✗ blocked by anti-bot (page too short / contains block markers); skipping")
+        return
+
     new_hash = hashlib.sha256(norm.encode()).hexdigest()
     entry = state.get(url, {})
     old_hash = entry.get("hash")
