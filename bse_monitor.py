@@ -149,6 +149,26 @@ def looks_blocked(text: str) -> bool:
     return any(s in text for s in indicators)
 
 
+def looks_empty(text: str) -> bool:
+    """
+    Detect 'page loaded but IPO data missing' state — typically only
+    the BSE site navigation/chrome got captured, not the IPO details.
+    """
+    if not text:
+        return True
+    # If we captured API JSON, we have real data — never empty.
+    if "========== API DATA ==========" in text:
+        return False
+    # Otherwise look for IPO-specific markers anywhere in the body
+    markers = (
+        "Price Band", "Issue Size", "Lot Size", "Subscription",
+        "Anchor", "Basis of Allotment", "Issue Open", "Issue Close",
+        "QIB", "NII", "Retail", "Issue Period", "Listing Date",
+    )
+    hits = sum(1 for m in markers if m.lower() in text.lower())
+    return hits < 2
+
+
 def is_subscription_only_change(diff_lines: list[str]) -> bool:
     kw = ("subscription", "subscribed", "times", "qib", "nii", "retail",
           "employee", "shareholders", "non-institutional")
@@ -217,7 +237,6 @@ async def fetch_rendered_text(url: str) -> str:
                 "Upgrade-Insecure-Requests": "1",
             },
         )
-        # Stealth: hide common automation fingerprints
         await context.add_init_script("""
             Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
             Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4,5]});
@@ -232,6 +251,27 @@ async def fetch_rendered_text(url: str) -> str:
         """)
         page = await context.new_page()
 
+        # Capture BSE API responses — this is the cleanest data source.
+        # BSE's displayipo page calls api.bseindia.com to fetch the actual
+        # IPO details, subscription, anchor list etc. We grab those JSON
+        # payloads directly.
+        api_payloads: list[str] = []
+
+        async def on_response(response):
+            try:
+                rurl = response.url
+                if "api.bseindia.com" in rurl or "bseindia.com/Bseplus" in rurl:
+                    if response.status == 200:
+                        ctype = (response.headers or {}).get("content-type", "")
+                        if "json" in ctype.lower() or "text" in ctype.lower():
+                            body = await response.text()
+                            if body and len(body.strip()) > 10:
+                                api_payloads.append(f"=== {rurl} ===\n{body[:8000]}")
+            except Exception:
+                pass
+
+        page.on("response", on_response)
+
         # Warm up: visit homepage first so Akamai sets a session cookie
         try:
             await page.goto("https://www.bseindia.com/", wait_until="domcontentloaded", timeout=30_000)
@@ -239,15 +279,35 @@ async def fetch_rendered_text(url: str) -> str:
         except Exception as e:
             print(f"  · warmup skipped: {e}")
 
-        # Now hit the actual target
-        await page.goto(url, wait_until="networkidle", timeout=60_000)
-        await page.wait_for_timeout(4000)
+        # Now hit the target. Use 'load' instead of 'networkidle' — BSE has
+        # long-polling XHRs that prevent networkidle from ever firing.
         try:
-            text = await page.locator("body").inner_text()
-        except Exception:
-            text = await page.content()
+            await page.goto(url, wait_until="load", timeout=60_000)
+        except Exception as e:
+            print(f"  · goto warning: {e}")
+
+        # Give XHRs time to populate
+        await page.wait_for_timeout(7000)
+
+        # Collect text from main page + ALL iframes
+        frame_texts: list[str] = []
+        for frame in page.frames:
+            try:
+                t = await frame.locator("body").inner_text(timeout=5000)
+                if t and len(t.strip()) > 30:
+                    frame_texts.append(t)
+            except Exception:
+                pass
+
+        body_text = "\n\n--- frame ---\n\n".join(frame_texts) if frame_texts else ""
+
         await browser.close()
-        return text
+
+        # Combine: body text + captured API JSON (the gold)
+        combined = body_text
+        if api_payloads:
+            combined += "\n\n========== API DATA ==========\n\n" + "\n\n".join(api_payloads)
+        return combined
 
 
 # ---------- Per-IPO check ----------
@@ -264,9 +324,14 @@ async def check_one(ipo: dict, state: dict) -> None:
     norm = normalize(raw)
 
     # If we got an Akamai/anti-bot block page, do NOT update state or alert.
-    # Leaving state untouched means next successful fetch will diff correctly.
     if looks_blocked(raw):
-        print(f"  ✗ blocked by anti-bot (page too short / contains block markers); skipping")
+        print(f"  ✗ blocked by anti-bot; skipping (state untouched)")
+        return
+
+    # If page loaded but IPO data didn't render, also skip — avoids saving
+    # a "navigation only" baseline that would diff against real data later.
+    if looks_empty(raw):
+        print(f"  ✗ page loaded but no IPO data found ({len(raw)} chars); skipping")
         return
 
     new_hash = hashlib.sha256(norm.encode()).hexdigest()
