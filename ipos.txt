@@ -1,0 +1,10 @@
+# Format per line:  YYYY-MM-DD | URL | Name
+#
+# - YYYY-MM-DD is the expected LISTING date (IST). After this date (+1 day buffer),
+#   the IPO is auto-dropped and you get a final "stopped tracking" Telegram.
+# - Name is optional — just for your reference in alerts. If omitted, the URL is shown.
+# - Lines starting with # and blank lines are ignored.
+# - To stop tracking an IPO early, just delete its line.
+# - To restart tracking, add it back with a new date.
+
+2026-07-15 | https://www.bseindia.com/markets/publicissues/displayipo?id=4654&type=IPO&idtype=1&status=L&IPONo=7799&startdt=29%2F06%2F2026 | IPO #7799
