@@ -7,4 +7,4 @@
 # - To stop tracking an IPO early, just delete its line.
 # - To restart tracking, add it back with a new date.
 
-2026-07-15 | https://www.bseindia.com/markets/publicissues/displayipo?id=4654&type=IPO&idtype=1&status=L&IPONo=7799&startdt=29%2F06%2F2026 | IPO #7799
+2026-07-10 | https://www.bseindia.com/markets/publicissues/displayipo?id=4652&type=IPO&idtype=1&status=L&IPONo=7797&startdt=25%2F06%2F2026 | IPO #7797
