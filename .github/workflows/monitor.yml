@@ -3,10 +3,10 @@ name: BSE IPO Monitor
 on:
   schedule:
     - cron: '*/15 * * * *'   # every 15 min
-  workflow_dispatch:          # manual run button
+  workflow_dispatch:
 
 permissions:
-  contents: write             # to commit state.json
+  contents: write
 
 concurrency:
   group: bse-monitor
@@ -15,7 +15,7 @@ concurrency:
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
 
@@ -25,24 +25,13 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          playwright install --with-deps chromium
+        run: pip install -r requirements.txt
 
       - name: Run monitor
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python bse_monitor.py
-
-      - name: Upload debug artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-${{ github.run_number }}
-          path: debug/
-          retention-days: 7
-          if-no-files-found: ignore
 
       - name: Commit updated state
         run: |
