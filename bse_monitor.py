@@ -184,6 +184,20 @@ def fetch_ipo_data(ipo_no: str) -> dict:
         url = template.format(ipo_no=ipo_no)
         data = http_get(url)
         combined[key] = data if data is not None else {"_error": "fetch failed"}
+        # Log the structure for diagnosis
+        if data:
+            if isinstance(data, dict):
+                summary_bits = []
+                for k, v in data.items():
+                    if isinstance(v, list):
+                        summary_bits.append(f"{k}[{len(v)}]")
+                    elif isinstance(v, dict):
+                        summary_bits.append(f"{k}{{...}}")
+                    else:
+                        summary_bits.append(k)
+                print(f"  · {key}: {', '.join(summary_bits)}")
+            elif isinstance(data, list):
+                print(f"  · {key}: list[{len(data)}]")
     return combined
 
 
@@ -236,31 +250,72 @@ def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
 
 
 def summarize(data: dict) -> str:
-    """Human-readable snapshot of the current IPO state."""
-    details = data.get("details") or {}
-    rows = details.get("Table") if isinstance(details, dict) else None
-    if not rows or not isinstance(rows[0], dict):
-        return "(no details data)"
-    row = rows[0]
-    # Show whichever of these fields exist in the response
-    fields_of_interest = [
-        ("Company", ["Company_Name", "COMPANY_NAME", "co_name", "CoName"]),
-        ("Type",    ["ISS_TYPE", "IssueType", "type"]),
-        ("Status",  ["STATUS", "status", "IPO_STATUS"]),
-        ("Open",    ["ISS_OPEN_DT", "IssueOpenDate", "iss_open_dt", "OPEN_DT"]),
-        ("Close",   ["ISS_CLOSE_DT", "IssueCloseDate", "iss_close_dt", "CLOSE_DT"]),
-        ("Price",   ["PRICE_BAND", "price_band", "IPO_PRICE"]),
-        ("Size",    ["ISS_SIZE", "iss_size", "IssueSize"]),
-        ("Lot",     ["LOT_SIZE", "lot_size", "MarketLot", "LotSize"]),
-        ("Listing", ["LISTING_DT", "ListingDate", "listing_dt", "LIST_DT"]),
+    """
+    Human-readable snapshot. Adapts to whatever field names BSE returns —
+    we don't know the exact schema in advance, so we prefer known IPO fields
+    but fall back to showing whatever non-empty fields exist.
+    """
+    details = data.get("details")
+    if not isinstance(details, dict):
+        return "(details format unexpected: " + type(details).__name__ + ")"
+
+    # Find the row set — BSE typically returns {"Table": [...]}, but not always
+    rows = None
+    for wrapper in ("Table", "data", "Data", "result", "Result"):
+        if wrapper in details and details[wrapper]:
+            rows = details[wrapper]
+            break
+
+    if rows is None:
+        # No known wrapper; show top-level keys so we can adjust the parser
+        keys = list(details.keys())[:15]
+        return f"Response keys: {', '.join(keys) if keys else '(none)'}"
+
+    # Normalize to a single dict row
+    if isinstance(rows, list) and rows:
+        row = rows[0] if isinstance(rows[0], dict) else None
+    elif isinstance(rows, dict):
+        row = rows
+    else:
+        row = None
+
+    if not row:
+        return f"(no row data, wrapper had {type(rows).__name__})"
+
+    # Prefer known IPO-related fields (in this order)
+    priority_patterns = [
+        ("Company", ["company", "co_name", "coname", "issuer", "scrip"]),
+        ("Type",    ["iss_type", "issuetype", "type"]),
+        ("Status",  ["status", "ipo_status"]),
+        ("Open",    ["open_dt", "openingdt", "open_date", "iss_open", "openingdate", "start_dt", "startdt"]),
+        ("Close",   ["close_dt", "closingdt", "close_date", "iss_close", "closingdate", "end_dt", "enddt"]),
+        ("Price",   ["price_band", "priceband", "ipo_price", "price"]),
+        ("Size",    ["iss_size", "issuesize", "size"]),
+        ("Lot",     ["lot_size", "lotsize", "market_lot", "marketlot"]),
+        ("Listing", ["listing_dt", "listingdate", "list_dt"]),
     ]
+    lower_keys = {k.lower(): k for k in row.keys()}
     parts = []
-    for label, keys in fields_of_interest:
-        for k in keys:
-            if k in row and row[k] not in (None, "", "-"):
-                parts.append(f"{label}: {row[k]}")
+    used = set()
+    for label, patterns in priority_patterns:
+        for pat in patterns:
+            for lk, orig_k in lower_keys.items():
+                if pat in lk and orig_k not in used:
+                    val = row[orig_k]
+                    if val not in (None, "", "-", "null"):
+                        parts.append(f"{label}: {val}")
+                        used.add(orig_k)
+                        break
+            if any(orig_k in used for orig_k in [k for k in row.keys() if pat in k.lower()]):
                 break
-    return "\n".join(parts) if parts else "(details present but no known fields)"
+
+    # If we found nothing recognizable, dump the first non-empty fields raw
+    if not parts:
+        for k, v in list(row.items())[:12]:
+            if v not in (None, "", "-", "null"):
+                parts.append(f"{k}: {v}")
+
+    return "\n".join(parts) if parts else "(all fields empty)"
 
 
 def is_subscription_only(changed_fields: list[str]) -> bool:
