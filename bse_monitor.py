@@ -251,6 +251,30 @@ def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
     return "\n".join(lines), changed_fields
 
 
+import re as _re
+
+# Labels BSE returns that are pure noise — server timestamps, placeholders,
+# duplicate identifiers etc. Stripping these prevents false-positive alerts.
+NOISE_LABELS = {
+    "DT_TM", "DT_TMC", "INSERT_DTTM", "AS_ON", "ISFormat",
+    "DY1", "DY2", "DY3", "DY4", "DY5", "DY6",
+    "IPO_Market_Timings", "Cut_off_time_for_UPI_Mandate_Confirmation",
+}
+
+# Value patterns that indicate a timestamp — skip these even if the label
+# isn't in NOISE_LABELS. Catches BSE adding new timestamp fields we don't know.
+_TS_PATTERNS = [
+    _re.compile(r"^\s*\d{1,2}/\d{1,2}/\d{4}\s+\d{1,2}:\d{2}(:\d{2})?"),        # 7/1/2026 12:16:56
+    _re.compile(r"^\s*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\w*day,\s+\w+\s+\d"),        # Wednesday, July 01, ...
+]
+
+
+def _looks_like_timestamp(value: str) -> bool:
+    if not value:
+        return False
+    return any(p.match(value) for p in _TS_PATTERNS)
+
+
 def canonicalize(data: dict) -> dict:
     """
     Transform BSE's raw API response into a stable, diff-friendly form.
@@ -266,7 +290,8 @@ def canonicalize(data: dict) -> dict:
     We collapse to:
       { "details": {Label: Value, ...}, "demand": {price: quantity, ...} }
 
-    This gives clean, human-readable field paths in diffs and hashes.
+    Noise labels (server timestamps like DT_TM/DT_TMC, dynamic placeholder
+    columns DY1..DY6) are filtered out so they don't cause false diffs.
     """
     out: dict = {"details": {}, "demand": {}}
 
@@ -278,8 +303,14 @@ def canonicalize(data: dict) -> dict:
                 continue
             label = str(r.get("Label", "")).strip()
             value = r.get("Value")
-            if label and value not in (None, "", "-"):
-                out["details"][label] = str(value).strip()
+            if not label or value in (None, "", "-"):
+                continue
+            if label in NOISE_LABELS:
+                continue
+            value_str = str(value).strip()
+            if _looks_like_timestamp(value_str):
+                continue
+            out["details"][label] = value_str
 
     # Parse demand curve: price -> quantity
     sub = data.get("subscription")
