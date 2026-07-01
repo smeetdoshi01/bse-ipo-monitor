@@ -209,7 +209,11 @@ def build_change_msg(ipo: dict, old: str, new: str) -> tuple[str, list[str]]:
 
 # ---------- Page fetch ----------
 
-async def fetch_rendered_text(url: str) -> str:
+async def fetch_rendered_text(url: str, debug_tag: str = "") -> str:
+    debug_dir = Path("debug")
+    debug_dir.mkdir(exist_ok=True)
+    safe_tag = re.sub(r"[^A-Za-z0-9_-]", "_", debug_tag)[:60] or "page"
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
@@ -301,6 +305,20 @@ async def fetch_rendered_text(url: str) -> str:
 
         body_text = "\n\n--- frame ---\n\n".join(frame_texts) if frame_texts else ""
 
+        # Debug dumps for diagnosis
+        try:
+            await page.screenshot(path=str(debug_dir / f"{safe_tag}_screenshot.png"), full_page=True)
+            html = await page.content()
+            (debug_dir / f"{safe_tag}_page.html").write_text(html, encoding="utf-8")
+            (debug_dir / f"{safe_tag}_body.txt").write_text(body_text, encoding="utf-8")
+            frame_list = "\n".join(f"- {f.url}" for f in page.frames)
+            (debug_dir / f"{safe_tag}_frames.txt").write_text(frame_list, encoding="utf-8")
+            api_text = "\n\n".join(api_payloads) if api_payloads else "(no API responses captured)"
+            (debug_dir / f"{safe_tag}_api_responses.txt").write_text(api_text, encoding="utf-8")
+            print(f"  · debug artifacts written to debug/{safe_tag}_*")
+        except Exception as e:
+            print(f"  · debug dump failed: {e}")
+
         await browser.close()
 
         # Combine: body text + captured API JSON (the gold)
@@ -316,7 +334,7 @@ async def check_one(ipo: dict, state: dict) -> None:
     url = ipo["url"]
     print(f"→ {ipo['name']}  (listing {ipo['listing_date']})")
     try:
-        raw = await fetch_rendered_text(url)
+        raw = await fetch_rendered_text(url, debug_tag=ipo["name"])
     except Exception as e:
         print(f"  ✗ fetch failed: {e}")
         return
