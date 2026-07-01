@@ -43,12 +43,12 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:45.835825+05:30"
+    "last_checked": "2026-07-01T14:22:29.596832+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4663&type=IPO&idtype=1&status=L&IPONo=7805&startdt=01%2F07%2F2026": {
     "name": "Knack Packaging",
     "listing_date": "2026-07-08",
-    "hash": "b202242efd5a2cd567a49b3878ffe054fd48fe28268558c422674fa6e19b8577",
+    "hash": "4e5b23a80b4b8d2f7054afb35b99f4d6df100809846a0ba1c8b4b412476cfa31",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -86,26 +86,26 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "161.00": "1784816",
-        "162.00": "1772672",
-        "163.00": "1772056",
-        "164.00": "1771792",
-        "165.00": "1771616",
-        "166.00": "1768800",
-        "167.00": "1768624",
-        "168.00": "1768536",
-        "169.00": "1768096",
-        "170.00": "1768008",
-        "Cut-off": "1219064"
+        "161.00": "5250608",
+        "162.00": "5230632",
+        "163.00": "5229840",
+        "164.00": "5229400",
+        "165.00": "5229136",
+        "166.00": "5225792",
+        "167.00": "5225528",
+        "168.00": "5225440",
+        "169.00": "5224824",
+        "170.00": "5224648",
+        "Cut-off": "1845976"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:46.585189+05:30"
+    "last_checked": "2026-07-01T14:22:30.902192+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4662&type=IPO&idtype=1&status=L&IPONo=7808&startdt=30%2F06%2F2026": {
     "name": "Seemax Resources",
     "listing_date": "2026-07-07",
-    "hash": "f28536eda52e0cae0d71744f479d51c6a1ebd187fde65e6f5c00414b22ce2286",
+    "hash": "ad51d8969976236c2283ed2305503dd04e490286efa2ccb0fbb4d414398090c0",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -139,17 +139,17 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "134.00": "4212000",
-        "141.00": "4208000"
+        "134.00": "4310000",
+        "141.00": "4306000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:47.483268+05:30"
+    "last_checked": "2026-07-01T14:22:31.714108+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4660&type=IPO&idtype=1&status=L&IPONo=7806&startdt=30%2F06%2F2026": {
     "name": "Sampark India",
     "listing_date": "2026-07-07",
-    "hash": "e93f787cc07439619dfb2565a2d211379e57f59d420d2eedf28f54e7d92696eb",
+    "hash": "580797d0a58238ef89e012baecf8e725f0374dcbf4eb65e9c85881e276fd1c80",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -183,18 +183,18 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "80.00": "3382400",
-        "82.00": "3376000",
-        "84.00": "3372800"
+        "80.00": "4760000",
+        "82.00": "4753600",
+        "84.00": "4750400"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:48.159332+05:30"
+    "last_checked": "2026-07-01T14:22:32.517129+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4659&type=IPO&idtype=1&status=L&IPONo=7807&startdt=30%2F06%2F2026": {
     "name": "Kratikal",
     "listing_date": "2026-07-07",
-    "hash": "db41e6b5b5d3aa5a4a8952196793d10fac26d30959011728eaa7029704b53c49",
+    "hash": "525e35c97ab9797767b495d31f16a0f52b64de23340198ccea34f491d0d93bf1",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -230,22 +230,22 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "128.00": "16349000",
-        "129.00": "16296000",
-        "130.00": "16290000",
-        "132.00": "16282000",
-        "133.00": "16276000",
-        "134.00": "16268000",
-        "135.00": "16256000"
+        "128.00": "22162000",
+        "129.00": "22095000",
+        "130.00": "22089000",
+        "132.00": "22075000",
+        "133.00": "22067000",
+        "134.00": "22059000",
+        "135.00": "22040000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:48.861328+05:30"
+    "last_checked": "2026-07-01T14:22:33.649978+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4658&type=IPO&idtype=1&status=L&IPONo=7801&startdt=30%2F06%2F2026": {
     "name": "Atharva Poly-Plast",
     "listing_date": "2026-07-07",
-    "hash": "fe935609ff4cc5105375b1b7e9a3944eec57ff9246ac7e5c33df6eef1fbb75c9",
+    "hash": "0be65cb0d7021bce63054a48637afe3bf195fe3105e819c639f2c045c301564d",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -279,18 +279,18 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "55.00": "5630000",
-        "56.00": "5610000",
-        "60.00": "5598000"
+        "55.00": "5826000",
+        "56.00": "5802000",
+        "60.00": "5790000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:50.732529+05:30"
+    "last_checked": "2026-07-01T14:22:34.971969+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4655&type=IPO&idtype=1&status=L&IPONo=7800&startdt=29%2F06%2F2026": {
     "name": "Adon Agro",
     "listing_date": "2026-07-06",
-    "hash": "1c5a02bfd1cd28317ffd6ff86c147769e86db722888039af350e4d8c58e9de44",
+    "hash": "d070e0209d13379511373678eb84c9d3723eb806b2f8d63fe8faed87053d56be",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -327,19 +327,19 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "66.00": "6634000",
-        "68.00": "6614000",
-        "69.00": "6614000",
-        "70.00": "6606000"
+        "66.00": "7164000",
+        "68.00": "7140000",
+        "69.00": "7140000",
+        "70.00": "7132000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:51.732186+05:30"
+    "last_checked": "2026-07-01T14:22:35.901407+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4653&type=IPO&idtype=1&status=L&IPONo=7798&startdt=29%2F06%2F2026": {
     "name": "Aastha Spintex",
     "listing_date": "2026-07-06",
-    "hash": "7c98b0888bb39d057598f6483698867c1f91505f9a23a0f751c603145e20a134",
+    "hash": "1f71e23e5893dcb63a17526c26d6d5e5e1198307bbf60ed45951481a75d0ed91",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -375,22 +375,22 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "125.00": "9705630",
-        "126.00": "9671310",
-        "127.00": "9667680",
-        "128.00": "9665590",
-        "129.00": "9662950",
-        "130.00": "9660640",
-        "131.00": "9646120",
-        "132.00": "9644030",
-        "133.00": "9642270",
-        "134.00": "9641720",
-        "135.00": "9639410",
-        "136.00": "9637210",
-        "Cut-off": "3106510"
+        "125.00": "12789920",
+        "126.00": "12748780",
+        "127.00": "12744600",
+        "128.00": "12742180",
+        "129.00": "12739100",
+        "130.00": "12736020",
+        "131.00": "12719850",
+        "132.00": "12717320",
+        "133.00": "12715340",
+        "134.00": "12714790",
+        "135.00": "12711930",
+        "136.00": "12709400",
+        "Cut-off": "3751880"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:30:52.722975+05:30"
+    "last_checked": "2026-07-01T14:22:36.934922+05:30"
   }
 }
