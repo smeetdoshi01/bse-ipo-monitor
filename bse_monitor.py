@@ -38,9 +38,11 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 IST = timezone(timedelta(hours=5, minutes=30))
 EXPIRY_BUFFER_DAYS = 1
 
-# Set to True to skip alerts that are ONLY subscription-number changes.
-# During an open IPO these tick every 15 min and get noisy.
-IGNORE_SUBSCRIPTION_ONLY_CHANGES = False
+# True = suppress alerts that are ONLY subscription/demand-curve ticks
+# (BSE updates these every ~15 min during open period — noisy). Any change
+# to actual IPO details (price band, dates, notices, anchor, status, etc.)
+# always alerts regardless.
+IGNORE_SUBSCRIPTION_ONLY_CHANGES = True
 
 BSE_HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -308,6 +310,9 @@ def summarize(canonical: dict) -> str:
         "Issue Period", "Price Band", "Issue Size – No. of Shares",
         "Market Lot", "Minimum Bid Quantity", "Face Value",
         "IPO Categories", "UPI Categories",
+        # Important event fields — surface these in the summary if present
+        "Exchange Notices", "Notes", "Remarks", "Anchor Details",
+        "Addendum", "Corrigendum", "Public Notices",
     ]
     parts = []
     for label in priority_labels:
@@ -334,17 +339,13 @@ def summarize(canonical: dict) -> str:
 
 
 def is_subscription_only(changed_fields: list[str]) -> bool:
-    """True if every changed field is a subscription-related field."""
+    """
+    True iff every changed field is a demand-curve tick (`demand.*`).
+    Any change to a details field always alerts.
+    """
     if not changed_fields:
         return False
-    kw = ("subscription", "subs", "sub_", "nii", "qib", "retail", "employee",
-          "shareholders", "times", "oversub", "bid_qty", "bidcnt", "bidqty",
-          "demand.", "bbs", "bid")
-    for f in changed_fields:
-        f_l = f.lower()
-        if not any(k.lower() in f_l for k in kw):
-            return False
-    return True
+    return all(f.startswith("demand.") for f in changed_fields)
 
 
 # ---------- Per-IPO check ----------
