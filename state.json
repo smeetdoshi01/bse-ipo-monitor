@@ -1,0 +1,49 @@
+{
+  "https://www.bseindia.com/markets/publicissues/displayipo?id=4652&type=IPO&idtype=1&status=L&IPONo=7797&startdt=25%2F06%2F2026": {
+    "name": "Crazy Snacks Limited",
+    "listing_date": "2026-06-30",
+    "hash": "c8687fa0de4031fb54f3c892d9680fa2d9e977c4afd675b412a6f005bedfb07f",
+    "data": {
+      "details": {
+        "ISBID_Detail": "1",
+        "IPO_NO": "7,797",
+        "ScripCode": "4,652",
+        "ScripName": "Crazy Snacks Limited",
+        "Security Type": "Equity",
+        "Symbol": "CRAZYSNACK",
+        "Issue Period": "25 Jun 2026 to 30 Jun 2026",
+        "Issue Size – No. of Shares": "74,94,000",
+        "Price Band": "39.00-42.00",
+        "Price-Band Advertisement": "https://www.bseindia.com/downloads/ipo/PriceBandAdvt_240620262132.pdf",
+        "IPO Categories": "FI, IC, MF, FII, OTH, CO, IND, NOH",
+        "UPI Categories": "IND",
+        "Face Value": "10",
+        "Tick Size": "1",
+        "Market Lot": "3,000",
+        "Minimum Bid Quantity": "6,000",
+        "Maximum Bid Quantity for Qualified Institutional Investors": "71,16,000",
+        "Maximum Bid Quantity for Non-Institutional Investors": "70,44,000",
+        "Book Running Lead Manager": "Inventure Merchant Banker Services Private Limited^Mumbai||||||||sme.ipo@inventuremerchantbanker.com|Arvind Gala or Shubham Tiwari",
+        "Registrar": "KFin Technologies Limited^Mumbai||||||||compliance.corp@kfintech.com",
+        "Sponsor Bank": "KOTAK BANK^Mumbai||||||||ruchi.prasad@kotak.com,prashant.sawant@kotak.com,CMSIPO@kotak.com,girish.tondare@kotak.com,richardje|Sumit Panchal",
+        "Prospectus & GID": "https://www.bseindia.com/downloads/ipo/RHP&GID_240620262132.zip",
+        "Blank ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BlankForms_New.aspx?ipo=4652",
+        "Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BidEntryQuick_New.aspx?ipo=4652",
+        "Revised Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/SrchBid.aspx?ipo=4652",
+        "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
+        "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
+        "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
+        "ISFormat": "0"
+      },
+      "demand": {
+        "39.00": "8976000",
+        "40.00": "8922000",
+        "41.00": "8910000",
+        "42.00": "8886000"
+      },
+      "api_status": "success"
+    },
+    "last_checked": "2026-07-01T12:06:52.187735+05:30"
+  }
+}
