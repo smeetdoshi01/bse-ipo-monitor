@@ -2,7 +2,7 @@
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4652&type=IPO&idtype=1&status=L&IPONo=7797&startdt=25%2F06%2F2026": {
     "name": "Crazy Snacks Limited",
     "listing_date": "2026-06-30",
-    "hash": "c8687fa0de4031fb54f3c892d9680fa2d9e977c4afd675b412a6f005bedfb07f",
+    "hash": "c4aa9a52738da939faa50a3c11b29d08fc71679bbfdbebaa0559034762a48d82",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -33,8 +33,7 @@
         "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
         "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
-        "ISFormat": "0"
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
         "39.00": "8976000",
@@ -44,16 +43,14 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:08.435583+05:30"
+    "last_checked": "2026-07-01T12:29:31.449565+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4663&type=IPO&idtype=1&status=L&IPONo=7805&startdt=01%2F07%2F2026": {
     "name": "Knack Packaging",
     "listing_date": "2026-07-08",
-    "hash": "3d644a024e03188398a44b1c7d6b132c5b05c38b5f7eed45fc57cc719c7b99c8",
+    "hash": "b202242efd5a2cd567a49b3878ffe054fd48fe28268558c422674fa6e19b8577",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,805",
         "ScripCode": "4,663",
@@ -89,30 +86,28 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "161.00": "1724712",
-        "162.00": "1712744",
-        "163.00": "1712128",
-        "164.00": "1711864",
-        "165.00": "1711688",
-        "166.00": "1708872",
-        "167.00": "1708696",
-        "168.00": "1708608",
-        "169.00": "1708168",
-        "170.00": "1708080",
-        "Cut-off": "1190024"
+        "161.00": "1784816",
+        "162.00": "1772672",
+        "163.00": "1772056",
+        "164.00": "1771792",
+        "165.00": "1771616",
+        "166.00": "1768800",
+        "167.00": "1768624",
+        "168.00": "1768536",
+        "169.00": "1768096",
+        "170.00": "1768008",
+        "Cut-off": "1219064"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:09.914793+05:30"
+    "last_checked": "2026-07-01T12:29:33.155258+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4662&type=IPO&idtype=1&status=L&IPONo=7808&startdt=30%2F06%2F2026": {
     "name": "Seemax Resources",
     "listing_date": "2026-07-07",
-    "hash": "93769077b3d9c3ff9c8aa6d4e282c4d4102516fc32489f3230ccd6b835e9a56e",
+    "hash": "f28536eda52e0cae0d71744f479d51c6a1ebd187fde65e6f5c00414b22ce2286",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,808",
         "ScripCode": "4,662",
@@ -141,25 +136,22 @@
         "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
         "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
-        "ISFormat": "0"
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "134.00": "4210000",
-        "141.00": "4206000"
+        "134.00": "4212000",
+        "141.00": "4208000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:11.488143+05:30"
+    "last_checked": "2026-07-01T12:29:34.950756+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4660&type=IPO&idtype=1&status=L&IPONo=7806&startdt=30%2F06%2F2026": {
     "name": "Sampark India",
     "listing_date": "2026-07-07",
-    "hash": "bfed7dc3c51b8657c59a0a0f59b14be21c448a09bf7fe387fab5e087b38674de",
+    "hash": "e93f787cc07439619dfb2565a2d211379e57f59d420d2eedf28f54e7d92696eb",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,806",
         "ScripCode": "4,660",
@@ -188,26 +180,23 @@
         "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
         "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
-        "ISFormat": "0"
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "80.00": "3379200",
-        "82.00": "3372800",
-        "84.00": "3369600"
+        "80.00": "3382400",
+        "82.00": "3376000",
+        "84.00": "3372800"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:13.049297+05:30"
+    "last_checked": "2026-07-01T12:29:36.751856+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4659&type=IPO&idtype=1&status=L&IPONo=7807&startdt=30%2F06%2F2026": {
     "name": "Kratikal",
     "listing_date": "2026-07-07",
-    "hash": "0416d4a343b6ff7fcf50870fe17d58a36b48d34c099de8046987e9cb267711f4",
+    "hash": "db41e6b5b5d3aa5a4a8952196793d10fac26d30959011728eaa7029704b53c49",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,807",
         "ScripCode": "4,659",
@@ -238,30 +227,27 @@
         "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
         "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
-        "ISFormat": "0"
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "128.00": "16058000",
-        "129.00": "16007000",
-        "130.00": "16001000",
-        "132.00": "15993000",
-        "133.00": "15987000",
-        "134.00": "15979000",
-        "135.00": "15967000"
+        "128.00": "16349000",
+        "129.00": "16296000",
+        "130.00": "16290000",
+        "132.00": "16282000",
+        "133.00": "16276000",
+        "134.00": "16268000",
+        "135.00": "16256000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:14.803186+05:30"
+    "last_checked": "2026-07-01T12:29:39.053814+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4658&type=IPO&idtype=1&status=L&IPONo=7801&startdt=30%2F06%2F2026": {
     "name": "Atharva Poly-Plast",
     "listing_date": "2026-07-07",
-    "hash": "aa13069c1d8b78d25d6ea14c201e6dd005baee5785c4f195b41fcd649cfdd200",
+    "hash": "fe935609ff4cc5105375b1b7e9a3944eec57ff9246ac7e5c33df6eef1fbb75c9",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,801",
         "ScripCode": "4,658",
@@ -290,26 +276,23 @@
         "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
         "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
-        "ISFormat": "0"
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "55.00": "5618000",
-        "56.00": "5602000",
-        "60.00": "5590000"
+        "55.00": "5630000",
+        "56.00": "5610000",
+        "60.00": "5598000"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:16.177029+05:30"
+    "last_checked": "2026-07-01T12:29:40.468139+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4655&type=IPO&idtype=1&status=L&IPONo=7800&startdt=29%2F06%2F2026": {
     "name": "Adon Agro",
     "listing_date": "2026-07-06",
-    "hash": "e34cc92bd8324adb0aca01ed3f7c97ab326638640c11ee13006b41723a106544",
+    "hash": "1c5a02bfd1cd28317ffd6ff86c147769e86db722888039af350e4d8c58e9de44",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,800",
         "ScripCode": "4,655",
@@ -341,8 +324,7 @@
         "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
         "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40",
-        "ISFormat": "0"
+        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
         "66.00": "6634000",
@@ -352,16 +334,14 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:18.490244+05:30"
+    "last_checked": "2026-07-01T12:29:41.926044+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4653&type=IPO&idtype=1&status=L&IPONo=7798&startdt=29%2F06%2F2026": {
     "name": "Aastha Spintex",
     "listing_date": "2026-07-06",
-    "hash": "bfe11e2e2e0802d11540592358d1b17d4b405f26fb15d5a8a3bed977cd1e3732",
+    "hash": "7c98b0888bb39d057598f6483698867c1f91505f9a23a0f751c603145e20a134",
     "data": {
       "details": {
-        "DT_TM": "7/1/2026 12:22:59",
-        "DT_TMC": "Wednesday, July 01 ,  2026 12:22:59 PM",
         "ISBID_Detail": "1",
         "IPO_NO": "7,798",
         "ScripCode": "4,653",
@@ -395,22 +375,22 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "125.00": "9382010",
-        "126.00": "9347910",
-        "127.00": "9344280",
-        "128.00": "9342190",
-        "129.00": "9339550",
-        "130.00": "9337240",
-        "131.00": "9322720",
-        "132.00": "9320630",
-        "133.00": "9318870",
-        "134.00": "9318320",
-        "135.00": "9316010",
-        "136.00": "9313810",
-        "Cut-off": "3068890"
+        "125.00": "9705630",
+        "126.00": "9671310",
+        "127.00": "9667680",
+        "128.00": "9665590",
+        "129.00": "9662950",
+        "130.00": "9660640",
+        "131.00": "9646120",
+        "132.00": "9644030",
+        "133.00": "9642270",
+        "134.00": "9641720",
+        "135.00": "9639410",
+        "136.00": "9637210",
+        "Cut-off": "3106510"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T12:25:20.938289+05:30"
+    "last_checked": "2026-07-01T12:29:43.601091+05:30"
   }
 }
