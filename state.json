@@ -43,7 +43,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:19:55.770151+05:30"
+    "last_checked": "2026-07-01T21:33:41.691675+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4663&type=IPO&idtype=1&status=L&IPONo=7805&startdt=01%2F07%2F2026": {
     "name": "Knack Packaging",
@@ -100,7 +100,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:19:56.721417+05:30"
+    "last_checked": "2026-07-01T21:33:42.646356+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4662&type=IPO&idtype=1&status=L&IPONo=7808&startdt=30%2F06%2F2026": {
     "name": "Seemax Resources",
@@ -144,7 +144,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:19:57.978338+05:30"
+    "last_checked": "2026-07-01T21:33:43.540941+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4660&type=IPO&idtype=1&status=L&IPONo=7806&startdt=30%2F06%2F2026": {
     "name": "Sampark India",
@@ -189,7 +189,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:19:59.122453+05:30"
+    "last_checked": "2026-07-01T21:33:44.361636+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4659&type=IPO&idtype=1&status=L&IPONo=7807&startdt=30%2F06%2F2026": {
     "name": "Kratikal",
@@ -241,7 +241,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:20:00.455156+05:30"
+    "last_checked": "2026-07-01T21:33:45.249933+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4658&type=IPO&idtype=1&status=L&IPONo=7801&startdt=30%2F06%2F2026": {
     "name": "Atharva Poly-Plast",
@@ -286,7 +286,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:20:01.409261+05:30"
+    "last_checked": "2026-07-01T21:33:46.144536+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4655&type=IPO&idtype=1&status=L&IPONo=7800&startdt=29%2F06%2F2026": {
     "name": "Adon Agro",
@@ -336,7 +336,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:20:02.316148+05:30"
+    "last_checked": "2026-07-01T21:33:47.326219+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4653&type=IPO&idtype=1&status=L&IPONo=7798&startdt=29%2F06%2F2026": {
     "name": "Aastha Spintex",
@@ -393,6 +393,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-01T21:20:03.283107+05:30"
+    "last_checked": "2026-07-01T21:33:48.054765+05:30"
   }
 }
