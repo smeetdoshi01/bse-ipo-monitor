@@ -249,73 +249,88 @@ def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
     return "\n".join(lines), changed_fields
 
 
-def summarize(data: dict) -> str:
+def canonicalize(data: dict) -> dict:
     """
-    Human-readable snapshot. Adapts to whatever field names BSE returns —
-    we don't know the exact schema in advance, so we prefer known IPO fields
-    but fall back to showing whatever non-empty fields exist.
+    Transform BSE's raw API response into a stable, diff-friendly form.
+
+    BSE returns:
+      - details.TableRows: [{Label: "Price Band", Value: "39-42"}, ...]
+      - subscription.IPONO_0: master details (mostly dupes of details)
+      - subscription.IPONO_1: dynamic-column junk with UUIDs (skip)
+      - subscription.IPONO_2: demand curve [{Price, Quantity, ...}]
+      - subscription.IPONO_3: duplicate of IPONO_2 (skip)
+      - subscription.IPONO_4: empty
+
+    We collapse to:
+      { "details": {Label: Value, ...}, "demand": {price: quantity, ...} }
+
+    This gives clean, human-readable field paths in diffs and hashes.
     """
+    out: dict = {"details": {}, "demand": {}}
+
+    # Parse detail rows: Label -> Value
     details = data.get("details")
-    if not isinstance(details, dict):
-        return "(details format unexpected: " + type(details).__name__ + ")"
+    if isinstance(details, dict):
+        for r in details.get("TableRows", []) or []:
+            if not isinstance(r, dict):
+                continue
+            label = str(r.get("Label", "")).strip()
+            value = r.get("Value")
+            if label and value not in (None, "", "-"):
+                out["details"][label] = str(value).strip()
 
-    # Find the row set — BSE typically returns {"Table": [...]}, but not always
-    rows = None
-    for wrapper in ("Table", "data", "Data", "result", "Result"):
-        if wrapper in details and details[wrapper]:
-            rows = details[wrapper]
-            break
+    # Parse demand curve: price -> quantity
+    sub = data.get("subscription")
+    if isinstance(sub, dict):
+        for r in sub.get("IPONO_2", []) or []:
+            if not isinstance(r, dict):
+                continue
+            price = str(r.get("Price", "")).strip()
+            qty = str(r.get("Quantity", "")).strip()
+            if price and qty:
+                out["demand"][price] = qty
+        # Also capture status if present
+        status = sub.get("status")
+        if status:
+            out["api_status"] = str(status)
 
-    if rows is None:
-        # No known wrapper; show top-level keys so we can adjust the parser
-        keys = list(details.keys())[:15]
-        return f"Response keys: {', '.join(keys) if keys else '(none)'}"
+    return out
 
-    # Normalize to a single dict row
-    if isinstance(rows, list) and rows:
-        row = rows[0] if isinstance(rows[0], dict) else None
-    elif isinstance(rows, dict):
-        row = rows
-    else:
-        row = None
 
-    if not row:
-        return f"(no row data, wrapper had {type(rows).__name__})"
+def summarize(canonical: dict) -> str:
+    """Human-readable snapshot from the canonicalized form."""
+    d = canonical.get("details", {})
+    if not d:
+        return "(no details captured)"
 
-    # Prefer known IPO-related fields (in this order)
-    priority_patterns = [
-        ("Company", ["company", "co_name", "coname", "issuer", "scrip"]),
-        ("Type",    ["iss_type", "issuetype", "type"]),
-        ("Status",  ["status", "ipo_status"]),
-        ("Open",    ["open_dt", "openingdt", "open_date", "iss_open", "openingdate", "start_dt", "startdt"]),
-        ("Close",   ["close_dt", "closingdt", "close_date", "iss_close", "closingdate", "end_dt", "enddt"]),
-        ("Price",   ["price_band", "priceband", "ipo_price", "price"]),
-        ("Size",    ["iss_size", "issuesize", "size"]),
-        ("Lot",     ["lot_size", "lotsize", "market_lot", "marketlot"]),
-        ("Listing", ["listing_dt", "listingdate", "list_dt"]),
+    priority_labels = [
+        "ScripName", "Symbol", "Security Type",
+        "Issue Period", "Price Band", "Issue Size – No. of Shares",
+        "Market Lot", "Minimum Bid Quantity", "Face Value",
+        "IPO Categories", "UPI Categories",
     ]
-    lower_keys = {k.lower(): k for k in row.keys()}
     parts = []
-    used = set()
-    for label, patterns in priority_patterns:
-        for pat in patterns:
-            for lk, orig_k in lower_keys.items():
-                if pat in lk and orig_k not in used:
-                    val = row[orig_k]
-                    if val not in (None, "", "-", "null"):
-                        parts.append(f"{label}: {val}")
-                        used.add(orig_k)
-                        break
-            if any(orig_k in used for orig_k in [k for k in row.keys() if pat in k.lower()]):
-                break
+    for label in priority_labels:
+        if label in d:
+            parts.append(f"{label}: {d[label]}")
 
-    # If we found nothing recognizable, dump the first non-empty fields raw
-    if not parts:
-        for k, v in list(row.items())[:12]:
-            if v not in (None, "", "-", "null"):
-                parts.append(f"{k}: {v}")
+    # Demand / subscription summary
+    demand = canonical.get("demand", {})
+    if demand:
+        # Highest price = cutoff price (usually upper end of band)
+        try:
+            cutoff = max(demand.keys(), key=lambda p: float(p))
+            qty = demand[cutoff]
+            parts.append(f"\nDemand at cutoff ₹{cutoff}: {int(qty):,} shares")
+            # Compute subscription ratio if issue size is known
+            iss_raw = d.get("Issue Size – No. of Shares", "").replace(",", "")
+            if iss_raw.isdigit() and int(iss_raw) > 0:
+                ratio = int(qty) / int(iss_raw)
+                parts.append(f"Subscription: {ratio:.2f}x")
+        except (ValueError, KeyError):
+            pass
 
-    return "\n".join(parts) if parts else "(all fields empty)"
+    return "\n".join(parts) if parts else "(no recognizable fields)"
 
 
 def is_subscription_only(changed_fields: list[str]) -> bool:
@@ -324,7 +339,7 @@ def is_subscription_only(changed_fields: list[str]) -> bool:
         return False
     kw = ("subscription", "subs", "sub_", "nii", "qib", "retail", "employee",
           "shareholders", "times", "oversub", "bid_qty", "bidcnt", "bidqty",
-          "GetMkt_ISSUE_BBS_IPO", "bbs", "BID")
+          "demand.", "bbs", "bid")
     for f in changed_fields:
         f_l = f.lower()
         if not any(k.lower() in f_l for k in kw):
@@ -337,18 +352,31 @@ def is_subscription_only(changed_fields: list[str]) -> bool:
 def check_one(ipo: dict, state: dict) -> None:
     url = ipo["url"]
     print(f"→ {ipo['name']}  (IPO_NO={ipo['ipo_no']}, listing {ipo['listing_date']})")
-    data = fetch_ipo_data(ipo["ipo_no"])
+    raw = fetch_ipo_data(ipo["ipo_no"])
 
-    if all_endpoints_failed(data):
+    if all_endpoints_failed(raw):
         print("  ✗ all API calls failed; skipping")
         return
 
-    canonical = json.dumps(data, sort_keys=True, default=str)
-    new_hash = hashlib.sha256(canonical.encode()).hexdigest()
+    # Collapse BSE's messy shape into a stable form before hashing/diffing
+    data = canonicalize(raw)
+
+    if not data.get("details"):
+        print("  ✗ canonicalized data has no details; likely API returned junk. Skipping.")
+        return
+
+    canonical_json = json.dumps(data, sort_keys=True, default=str)
+    new_hash = hashlib.sha256(canonical_json.encode()).hexdigest()
 
     entry = state.get(url, {})
     old_hash = entry.get("hash")
     old_data = entry.get("data", {})
+
+    # If old data is in raw format (from a previous version), canonicalize
+    # it so the diff makes sense.
+    if isinstance(old_data, dict) and ("details" in old_data and isinstance(old_data.get("details"), dict) and "TableRows" in old_data["details"]):
+        old_data = canonicalize(old_data)
+        old_hash = None  # force alert this run so summary gets sent
 
     if old_hash is None:
         summary = summarize(data)
