@@ -1,25 +1,34 @@
 """
-BSE IPO Monitor → Telegram
+BSE IPO Monitor → Telegram (v2, API-based)
 
-Tracks multiple ongoing IPOs from BSE. Each IPO has a listing date attached;
-once that date passes (plus a 1-day buffer to catch listing-day updates), the
-IPO is auto-dropped and you get a final "stopped tracking" Telegram.
+Uses BSE's own JSON API endpoints (the ones its own frontend calls) instead
+of scraping the HTML page:
+  - api.bseindia.com/BseIndiaAPI/api/ipo_details_ng/w?stripono=<IPO_NO>
+  - api.bseindia.com/BseIndiaAPI/api/GetMkt_ISSUE_BBS_IPO/w?IPO_NO=<IPO_NO>
 
-To add a new IPO: append a line to ipos.txt. To remove one early: delete the
-line. Everything else (state cleanup, alerts) is automatic.
+Much faster and more reliable than Playwright — no Akamai, no session games.
 """
-import asyncio
 import hashlib
 import json
 import os
 import re
 import sys
+import urllib.parse
 from datetime import datetime, timedelta, timezone
-from difflib import unified_diff
 from pathlib import Path
 
-import requests
-from playwright.async_api import async_playwright
+# Prefer curl_cffi for Chrome TLS impersonation (bypasses BSE's TLS-fingerprint
+# checks). Fall back to plain requests if not installed.
+try:
+    from curl_cffi import requests as http_client
+    USE_IMPERSONATE = True
+except ImportError:
+    import requests as http_client
+    USE_IMPERSONATE = False
+
+# For Telegram — always plain requests, no impersonation needed
+import requests as tg_requests
+
 
 IPOS_FILE = "ipos.txt"
 STATE_FILE = "state.json"
@@ -27,11 +36,29 @@ TELEGRAM_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 IST = timezone(timedelta(hours=5, minutes=30))
-EXPIRY_BUFFER_DAYS = 1   # keep tracking N days after listing date
+EXPIRY_BUFFER_DAYS = 1
 
-# True = suppress alerts that are ONLY live subscription-number ticks.
-# False = alert on every change including subs.
+# Set to True to skip alerts that are ONLY subscription-number changes.
+# During an open IPO these tick every 15 min and get noisy.
 IGNORE_SUBSCRIPTION_ONLY_CHANGES = False
+
+BSE_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) "
+                   "Chrome/124.0.0.0 Safari/537.36"),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Origin": "https://www.bseindia.com",
+    "Referer": "https://www.bseindia.com/",
+    "sec-ch-ua": '"Google Chrome";v="124", "Chromium";v="124", "Not-A.Brand";v="99"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+}
+
+API_ENDPOINTS = {
+    "details":      "https://api.bseindia.com/BseIndiaAPI/api/ipo_details_ng/w?stripono={ipo_no}",
+    "subscription": "https://api.bseindia.com/BseIndiaAPI/api/GetMkt_ISSUE_BBS_IPO/w?IPO_NO={ipo_no}",
+}
 
 
 # ---------- Telegram ----------
@@ -44,7 +71,7 @@ def send_telegram(message: str) -> None:
     if len(message) > 4000:
         message = message[:4000] + "\n\n... (truncated)"
     try:
-        r = requests.post(
+        r = tg_requests.post(
             api,
             data={
                 "chat_id": TELEGRAM_CHAT_ID,
@@ -73,7 +100,7 @@ def load_state() -> dict:
 
 
 def save_state(state: dict) -> None:
-    Path(STATE_FILE).write_text(json.dumps(state, indent=2, ensure_ascii=False))
+    Path(STATE_FILE).write_text(json.dumps(state, indent=2, ensure_ascii=False, default=str))
 
 
 # ---------- IPO list parsing ----------
@@ -83,10 +110,7 @@ def today_ist():
 
 
 def parse_ipos_file() -> list[dict]:
-    """
-    Format per line:
-        YYYY-MM-DD | URL | optional name
-    """
+    """Format per line: YYYY-MM-DD | URL | optional name"""
     path = Path(IPOS_FILE)
     if not path.exists():
         print(f"Create {IPOS_FILE} (one IPO per line: 'YYYY-MM-DD | URL | name').")
@@ -108,8 +132,28 @@ def parse_ipos_file() -> list[dict]:
         except ValueError:
             print(f"⚠ Bad date in line, skipping: {raw}")
             continue
-        out.append({"url": url, "listing_date": listing_date, "name": name})
+        ipo_no = parse_ipo_no_from_url(url)
+        if not ipo_no:
+            print(f"⚠ Couldn't extract IPONo from URL, skipping: {url}")
+            continue
+        out.append({
+            "url": url,
+            "listing_date": listing_date,
+            "name": name,
+            "ipo_no": ipo_no,
+        })
     return out
+
+
+def parse_ipo_no_from_url(url: str) -> str | None:
+    """Extract IPONo=xxxx or IPO_NO=xxxx from a BSE URL."""
+    parsed = urllib.parse.urlparse(url)
+    params = urllib.parse.parse_qs(parsed.query)
+    # BSE uses various casings across pages
+    for key in ("IPONo", "IPO_NO", "IPONO", "ipono", "stripono"):
+        if key in params and params[key]:
+            return params[key][0]
+    return None
 
 
 def is_active(ipo: dict) -> bool:
@@ -117,260 +161,154 @@ def is_active(ipo: dict) -> bool:
     return today_ist() <= cutoff
 
 
-# ---------- Content normalization & diff ----------
+# ---------- BSE API fetching ----------
 
-def normalize(text: str) -> str:
-    text = re.sub(
-        r"\d{1,2}[-/ ](?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-/ ]\d{4}\s+\d{1,2}:\d{2}(:\d{2})?",
-        "<TS>", text, flags=re.IGNORECASE,
-    )
-    text = re.sub(r"\d{2}/\d{2}/\d{4}\s+\d{1,2}:\d{2}(:\d{2})?", "<TS>", text)
-    text = re.sub(r"as on\s+\d{1,2}:\d{2}(:\d{2})?", "as on <TS>", text, flags=re.IGNORECASE)
-    # Strip Akamai block-page reference IDs (defense in depth)
-    text = re.sub(r"Reference\s*#[\d.\w]+", "<REF>", text, flags=re.IGNORECASE)
-    text = re.sub(r"https://errors\.edgesuite\.net/[\d.\w]+", "<ERR_URL>", text)
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text.strip()
+def http_get(url: str) -> dict | None:
+    """GET a BSE API endpoint. Returns parsed JSON or None on failure."""
+    try:
+        kwargs = {"headers": BSE_HEADERS, "timeout": 30}
+        if USE_IMPERSONATE:
+            kwargs["impersonate"] = "chrome124"
+        r = http_client.get(url, **kwargs)
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        print(f"  · GET {url} → {e}")
+        return None
 
 
-def looks_blocked(text: str) -> bool:
-    """Detect Akamai / generic anti-bot challenge pages."""
-    if not text or len(text) > 8000:
+def fetch_ipo_data(ipo_no: str) -> dict:
+    """Fetch all API endpoints for one IPO, return combined dict."""
+    combined = {}
+    for key, template in API_ENDPOINTS.items():
+        url = template.format(ipo_no=ipo_no)
+        data = http_get(url)
+        combined[key] = data if data is not None else {"_error": "fetch failed"}
+    return combined
+
+
+def all_endpoints_failed(data: dict) -> bool:
+    return all(isinstance(v, dict) and "_error" in v for v in data.values())
+
+
+# ---------- Diff & summarize ----------
+
+def flatten(obj, prefix: str = "") -> list[str]:
+    """Flatten nested dict/list to 'dotted.path: value' strings."""
+    out = []
+    if isinstance(obj, dict):
+        for k in sorted(obj.keys()):
+            out.extend(flatten(obj[k], f"{prefix}.{k}" if prefix else k))
+    elif isinstance(obj, list):
+        for i, item in enumerate(obj):
+            out.extend(flatten(item, f"{prefix}[{i}]"))
+    else:
+        val = str(obj) if obj is not None else ""
+        out.append(f"{prefix}\t{val}")
+    return out
+
+
+def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
+    """Return (human-readable diff, list of changed field names)."""
+    def to_map(d):
+        m = {}
+        for line in flatten(d):
+            if "\t" in line:
+                k, v = line.split("\t", 1)
+                m[k] = v
+        return m
+
+    old_map = to_map(old)
+    new_map = to_map(new)
+    lines = []
+    changed_fields = []
+    for k in sorted(set(old_map) | set(new_map)):
+        if k not in old_map:
+            lines.append(f"+ {k}: {new_map[k]}")
+            changed_fields.append(k)
+        elif k not in new_map:
+            lines.append(f"- {k}: {old_map[k]}")
+            changed_fields.append(k)
+        elif old_map[k] != new_map[k]:
+            lines.append(f"~ {k}: {old_map[k]} → {new_map[k]}")
+            changed_fields.append(k)
+    return "\n".join(lines), changed_fields
+
+
+def summarize(data: dict) -> str:
+    """Human-readable snapshot of the current IPO state."""
+    details = data.get("details") or {}
+    rows = details.get("Table") if isinstance(details, dict) else None
+    if not rows or not isinstance(rows[0], dict):
+        return "(no details data)"
+    row = rows[0]
+    # Show whichever of these fields exist in the response
+    fields_of_interest = [
+        ("Company", ["Company_Name", "COMPANY_NAME", "co_name", "CoName"]),
+        ("Type",    ["ISS_TYPE", "IssueType", "type"]),
+        ("Status",  ["STATUS", "status", "IPO_STATUS"]),
+        ("Open",    ["ISS_OPEN_DT", "IssueOpenDate", "iss_open_dt", "OPEN_DT"]),
+        ("Close",   ["ISS_CLOSE_DT", "IssueCloseDate", "iss_close_dt", "CLOSE_DT"]),
+        ("Price",   ["PRICE_BAND", "price_band", "IPO_PRICE"]),
+        ("Size",    ["ISS_SIZE", "iss_size", "IssueSize"]),
+        ("Lot",     ["LOT_SIZE", "lot_size", "MarketLot", "LotSize"]),
+        ("Listing", ["LISTING_DT", "ListingDate", "listing_dt", "LIST_DT"]),
+    ]
+    parts = []
+    for label, keys in fields_of_interest:
+        for k in keys:
+            if k in row and row[k] not in (None, "", "-"):
+                parts.append(f"{label}: {row[k]}")
+                break
+    return "\n".join(parts) if parts else "(details present but no known fields)"
+
+
+def is_subscription_only(changed_fields: list[str]) -> bool:
+    """True if every changed field is a subscription-related field."""
+    if not changed_fields:
         return False
-    indicators = (
-        "edgesuite.net",
-        "Reference #18.",
-        "Access Denied",
-        "You don't have permission to access",
-        "akamaihd.net",
-        "Pardon Our Interruption",
-    )
-    return any(s in text for s in indicators)
-
-
-def looks_empty(text: str) -> bool:
-    """
-    Detect 'page loaded but IPO data missing' state — typically only
-    the BSE site navigation/chrome got captured, not the IPO details.
-    """
-    if not text:
-        return True
-    # If we captured API JSON, we have real data — never empty.
-    if "========== API DATA ==========" in text:
-        return False
-    # Otherwise look for IPO-specific markers anywhere in the body
-    markers = (
-        "Price Band", "Issue Size", "Lot Size", "Subscription",
-        "Anchor", "Basis of Allotment", "Issue Open", "Issue Close",
-        "QIB", "NII", "Retail", "Issue Period", "Listing Date",
-    )
-    hits = sum(1 for m in markers if m.lower() in text.lower())
-    return hits < 2
-
-
-def is_subscription_only_change(diff_lines: list[str]) -> bool:
-    kw = ("subscription", "subscribed", "times", "qib", "nii", "retail",
-          "employee", "shareholders", "non-institutional")
-    for line in diff_lines:
-        body = line[1:].lower().strip()
-        if not body:
-            continue
-        if any(k in body for k in kw):
-            continue
-        if re.match(r"^[\d.,xX\s]+$", body):
-            continue
-        return False
+    kw = ("subscription", "subs", "sub_", "nii", "qib", "retail", "employee",
+          "shareholders", "times", "oversub", "bid_qty", "bidcnt", "bidqty",
+          "GetMkt_ISSUE_BBS_IPO", "bbs", "BID")
+    for f in changed_fields:
+        f_l = f.lower()
+        if not any(k.lower() in f_l for k in kw):
+            return False
     return True
-
-
-def build_change_msg(ipo: dict, old: str, new: str) -> tuple[str, list[str]]:
-    old_lines = [l for l in old.splitlines() if l.strip()]
-    new_lines = [l for l in new.splitlines() if l.strip()]
-    diff = list(unified_diff(old_lines, new_lines, lineterm="", n=0))
-    changes = [l for l in diff if l.startswith(("+", "-"))
-               and not l.startswith(("+++", "---"))]
-    preview = "\n".join(changes[:25])
-    if len(changes) > 25:
-        preview += f"\n... and {len(changes) - 25} more lines"
-    days_to_listing = (ipo["listing_date"] - today_ist()).days
-    listing_info = (
-        f"Listing: {ipo['listing_date'].isoformat()} "
-        f"({'today' if days_to_listing == 0 else f'in {days_to_listing}d' if days_to_listing > 0 else f'{-days_to_listing}d ago'})"
-    )
-    msg = (
-        f"🔔 <b>{ipo['name']}</b> — BSE page changed\n"
-        f"{listing_info}\n\n"
-        f"<a href=\"{ipo['url']}\">Open IPO page</a>\n\n"
-        f"<b>Diff:</b>\n<pre>{preview or '(content reshuffled)'}</pre>"
-    )
-    return msg, changes
-
-
-# ---------- Page fetch ----------
-
-async def fetch_rendered_text(url: str, debug_tag: str = "") -> str:
-    debug_dir = Path("debug")
-    debug_dir.mkdir(exist_ok=True)
-    safe_tag = re.sub(r"[^A-Za-z0-9_-]", "_", debug_tag)[:60] or "page"
-
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(
-            headless=True,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--disable-features=IsolateOrigins,site-per-process",
-                "--disable-site-isolation-trials",
-                "--no-sandbox",
-            ],
-        )
-        context = await browser.new_context(
-            user_agent=(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
-            viewport={"width": 1920, "height": 1080},
-            locale="en-IN",
-            timezone_id="Asia/Kolkata",
-            extra_http_headers={
-                "Accept-Language": "en-US,en;q=0.9,hi;q=0.8",
-                "sec-ch-ua": '"Google Chrome";v="124", "Chromium";v="124", "Not-A.Brand";v="99"',
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": '"Windows"',
-                "Upgrade-Insecure-Requests": "1",
-            },
-        )
-        await context.add_init_script("""
-            Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
-            Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4,5]});
-            Object.defineProperty(navigator, 'languages', {get: () => ['en-US','en']});
-            window.chrome = { runtime: {} };
-            const originalQuery = window.navigator.permissions.query;
-            window.navigator.permissions.query = (parameters) => (
-                parameters.name === 'notifications'
-                    ? Promise.resolve({state: Notification.permission})
-                    : originalQuery(parameters)
-            );
-        """)
-        page = await context.new_page()
-
-        # Capture BSE API responses — this is the cleanest data source.
-        # BSE's displayipo page calls api.bseindia.com to fetch the actual
-        # IPO details, subscription, anchor list etc. We grab those JSON
-        # payloads directly.
-        api_payloads: list[str] = []
-
-        async def on_response(response):
-            try:
-                rurl = response.url
-                if "api.bseindia.com" in rurl or "bseindia.com/Bseplus" in rurl:
-                    if response.status == 200:
-                        ctype = (response.headers or {}).get("content-type", "")
-                        if "json" in ctype.lower() or "text" in ctype.lower():
-                            body = await response.text()
-                            if body and len(body.strip()) > 10:
-                                api_payloads.append(f"=== {rurl} ===\n{body[:8000]}")
-            except Exception:
-                pass
-
-        page.on("response", on_response)
-
-        # Warm up: visit homepage first so Akamai sets a session cookie
-        try:
-            await page.goto("https://www.bseindia.com/", wait_until="domcontentloaded", timeout=30_000)
-            await page.wait_for_timeout(2500)
-        except Exception as e:
-            print(f"  · warmup skipped: {e}")
-
-        # Now hit the target. Use 'load' instead of 'networkidle' — BSE has
-        # long-polling XHRs that prevent networkidle from ever firing.
-        try:
-            await page.goto(url, wait_until="load", timeout=60_000)
-        except Exception as e:
-            print(f"  · goto warning: {e}")
-
-        # Give XHRs time to populate
-        await page.wait_for_timeout(7000)
-
-        # Collect text from main page + ALL iframes
-        frame_texts: list[str] = []
-        for frame in page.frames:
-            try:
-                t = await frame.locator("body").inner_text(timeout=5000)
-                if t and len(t.strip()) > 30:
-                    frame_texts.append(t)
-            except Exception:
-                pass
-
-        body_text = "\n\n--- frame ---\n\n".join(frame_texts) if frame_texts else ""
-
-        # Debug dumps for diagnosis
-        try:
-            await page.screenshot(path=str(debug_dir / f"{safe_tag}_screenshot.png"), full_page=True)
-            html = await page.content()
-            (debug_dir / f"{safe_tag}_page.html").write_text(html, encoding="utf-8")
-            (debug_dir / f"{safe_tag}_body.txt").write_text(body_text, encoding="utf-8")
-            frame_list = "\n".join(f"- {f.url}" for f in page.frames)
-            (debug_dir / f"{safe_tag}_frames.txt").write_text(frame_list, encoding="utf-8")
-            api_text = "\n\n".join(api_payloads) if api_payloads else "(no API responses captured)"
-            (debug_dir / f"{safe_tag}_api_responses.txt").write_text(api_text, encoding="utf-8")
-            print(f"  · debug artifacts written to debug/{safe_tag}_*")
-        except Exception as e:
-            print(f"  · debug dump failed: {e}")
-
-        await browser.close()
-
-        # Combine: body text + captured API JSON (the gold)
-        combined = body_text
-        if api_payloads:
-            combined += "\n\n========== API DATA ==========\n\n" + "\n\n".join(api_payloads)
-        return combined
 
 
 # ---------- Per-IPO check ----------
 
-async def check_one(ipo: dict, state: dict) -> None:
+def check_one(ipo: dict, state: dict) -> None:
     url = ipo["url"]
-    print(f"→ {ipo['name']}  (listing {ipo['listing_date']})")
-    try:
-        raw = await fetch_rendered_text(url, debug_tag=ipo["name"])
-    except Exception as e:
-        print(f"  ✗ fetch failed: {e}")
+    print(f"→ {ipo['name']}  (IPO_NO={ipo['ipo_no']}, listing {ipo['listing_date']})")
+    data = fetch_ipo_data(ipo["ipo_no"])
+
+    if all_endpoints_failed(data):
+        print("  ✗ all API calls failed; skipping")
         return
 
-    norm = normalize(raw)
+    canonical = json.dumps(data, sort_keys=True, default=str)
+    new_hash = hashlib.sha256(canonical.encode()).hexdigest()
 
-    # If we got an Akamai/anti-bot block page, do NOT update state or alert.
-    if looks_blocked(raw):
-        print(f"  ✗ blocked by anti-bot; skipping (state untouched)")
-        return
-
-    # If page loaded but IPO data didn't render, also skip — avoids saving
-    # a "navigation only" baseline that would diff against real data later.
-    if looks_empty(raw):
-        print(f"  ✗ page loaded but no IPO data found ({len(raw)} chars); skipping")
-        return
-
-    new_hash = hashlib.sha256(norm.encode()).hexdigest()
     entry = state.get(url, {})
     old_hash = entry.get("hash")
-    old_content = entry.get("content", "")
+    old_data = entry.get("data", {})
 
     if old_hash is None:
+        summary = summarize(data)
         state[url] = {
             "name": ipo["name"],
             "listing_date": ipo["listing_date"].isoformat(),
             "hash": new_hash,
-            "content": norm,
+            "data": data,
             "last_checked": datetime.now(IST).isoformat(),
         }
         send_telegram(
             f"📡 <b>Now tracking {ipo['name']}</b>\n"
-            f"Listing: {ipo['listing_date'].isoformat()}\n\n"
+            f"Expected listing: {ipo['listing_date'].isoformat()}\n\n"
             f"<a href=\"{url}\">Open IPO page</a>\n\n"
-            f"Baseline captured. You'll be alerted on changes until "
-            f"{(ipo['listing_date'] + timedelta(days=EXPIRY_BUFFER_DAYS)).isoformat()}."
+            f"<b>Current state:</b>\n<pre>{summary}</pre>"
         )
         print("  ✓ baseline captured")
         return
@@ -380,18 +318,35 @@ async def check_one(ipo: dict, state: dict) -> None:
         print("  · no change")
         return
 
-    msg, changes = build_change_msg(ipo, old_content, norm)
-    if IGNORE_SUBSCRIPTION_ONLY_CHANGES and is_subscription_only_change(changes):
-        print("  · subscription-only change, suppressed")
+    diff_text, changed_fields = build_diff(old_data, data)
+
+    if IGNORE_SUBSCRIPTION_ONLY_CHANGES and is_subscription_only(changed_fields):
+        print(f"  · subscription-only change ({len(changed_fields)} fields), suppressed")
     else:
-        send_telegram(msg)
-        print(f"  ✓ change detected ({len(changes)} lines), alerted")
+        # Trim diff to fit Telegram
+        preview_lines = diff_text.splitlines()
+        preview = "\n".join(preview_lines[:30])
+        if len(preview_lines) > 30:
+            preview += f"\n... and {len(preview_lines) - 30} more"
+        days_to_listing = (ipo["listing_date"] - today_ist()).days
+        listing_str = (
+            f"today" if days_to_listing == 0
+            else f"in {days_to_listing}d" if days_to_listing > 0
+            else f"{-days_to_listing}d ago"
+        )
+        send_telegram(
+            f"🔔 <b>{ipo['name']}</b> — BSE data changed\n"
+            f"Listing: {ipo['listing_date'].isoformat()} ({listing_str})\n\n"
+            f"<a href=\"{url}\">Open IPO page</a>\n\n"
+            f"<b>Changed fields ({len(changed_fields)}):</b>\n<pre>{preview}</pre>"
+        )
+        print(f"  ✓ change detected ({len(changed_fields)} fields), alerted")
 
     state[url].update({
         "name": ipo["name"],
         "listing_date": ipo["listing_date"].isoformat(),
         "hash": new_hash,
-        "content": norm,
+        "data": data,
         "last_checked": datetime.now(IST).isoformat(),
     })
 
@@ -399,18 +354,11 @@ async def check_one(ipo: dict, state: dict) -> None:
 # ---------- Expiry / cleanup ----------
 
 def handle_expired_and_removed(all_ipos: list[dict], state: dict) -> None:
-    """
-    Three cases for URLs currently in state:
-      1. URL in ipos.txt and active → keep
-      2. URL in ipos.txt but past listing+buffer → notify, drop from state
-      3. URL no longer in ipos.txt (user removed manually) → drop silently
-    """
     file_urls = {ipo["url"]: ipo for ipo in all_ipos}
     to_drop = []
-
     for url, entry in list(state.items()):
         if url not in file_urls:
-            print(f"⌫  Removed by user: {entry.get('name', url)}")
+            print(f"⌫ Removed by user: {entry.get('name', url)}")
             to_drop.append(url)
             continue
         ipo = file_urls[url]
@@ -418,35 +366,33 @@ def handle_expired_and_removed(all_ipos: list[dict], state: dict) -> None:
             send_telegram(
                 f"✅ <b>Stopped tracking {ipo['name']}</b>\n"
                 f"Listing date {ipo['listing_date'].isoformat()} has passed.\n\n"
-                f"To restart tracking, re-add it to ipos.txt with a new date."
+                f"Re-add it to ipos.txt with a new date to restart tracking."
             )
             print(f"✓ Auto-expired: {ipo['name']}")
             to_drop.append(url)
-
     for u in to_drop:
         state.pop(u, None)
 
 
 # ---------- Main ----------
 
-async def main() -> None:
+def main() -> None:
     all_ipos = parse_ipos_file()
     state = load_state()
 
-    # First: handle anything that just expired or was removed
     handle_expired_and_removed(all_ipos, state)
 
-    # Then: check only active IPOs
     active = [i for i in all_ipos if is_active(i)]
     if not active:
         print("No active IPOs to monitor.")
         save_state(state)
         return
 
-    print(f"Monitoring {len(active)} active IPO(s).")
+    print(f"Monitoring {len(active)} active IPO(s) via BSE API "
+          f"(impersonate={'on' if USE_IMPERSONATE else 'off'}).")
     for ipo in active:
         try:
-            await check_one(ipo, state)
+            check_one(ipo, state)
         except Exception as e:
             print(f"  ✗ unexpected error on {ipo['name']}: {e}")
 
@@ -455,4 +401,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
