@@ -2,7 +2,7 @@
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4663&type=IPO&idtype=1&status=L&IPONo=7805&startdt=01%2F07%2F2026": {
     "name": "Knack Packaging",
     "listing_date": "2026-07-08",
-    "hash": "0ce5ce5b3a3e1acd530ae75e92234217bad8b6331282ab20975ba8d71979768c",
+    "hash": "7fb13ff815c571d6443de67d303621583b0bdf9eeb0d8ed9f45760c1eaed97d9",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -39,27 +39,15 @@
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
-      "demand": {
-        "161.00": "7053816",
-        "162.00": "7032432",
-        "163.00": "7031552",
-        "164.00": "7031024",
-        "165.00": "7030760",
-        "166.00": "7026888",
-        "167.00": "7026624",
-        "168.00": "7026536",
-        "169.00": "7025744",
-        "170.00": "7025480",
-        "Cut-off": "2552616"
-      },
+      "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:16.457002+05:30"
+    "last_checked": "2026-07-02T09:42:24.329904+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4662&type=IPO&idtype=1&status=L&IPONo=7808&startdt=30%2F06%2F2026": {
     "name": "Seemax Resources",
     "listing_date": "2026-07-07",
-    "hash": "6fe3cd31dc841de650c9e1616440a40ae78034c5f4cd648c9b222f712cef6975",
+    "hash": "3f5f98e0b67e24a1668b2dacdd56bacd5d68cf8c2c296ff38328d6ca13f97576",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -92,18 +80,15 @@
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
-      "demand": {
-        "134.00": "4414000",
-        "141.00": "4410000"
-      },
+      "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:17.306589+05:30"
+    "last_checked": "2026-07-02T09:42:25.237643+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4660&type=IPO&idtype=1&status=L&IPONo=7806&startdt=30%2F06%2F2026": {
     "name": "Sampark India",
     "listing_date": "2026-07-07",
-    "hash": "d46f77097b0f41562a342344de68035f72ec58f787c03b668fc343473ce95ec4",
+    "hash": "3e1eed2f1e8ae2e36b4336593eeba33ebb124c118b4d864a737b14ff1239cd11",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -136,19 +121,15 @@
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
-      "demand": {
-        "80.00": "5358400",
-        "82.00": "5352000",
-        "84.00": "5348800"
-      },
+      "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:18.054047+05:30"
+    "last_checked": "2026-07-02T09:42:25.934663+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4659&type=IPO&idtype=1&status=L&IPONo=7807&startdt=30%2F06%2F2026": {
     "name": "Kratikal",
     "listing_date": "2026-07-07",
-    "hash": "6b7e688416f0e43e068432b36d487cb8696f7e949a150959a2a94e45f3365ed9",
+    "hash": "905a6401b3a377d2967b13e108a877106e2ca235124f37ce452e26cf87cb2c01",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -183,24 +164,15 @@
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
-      "demand": {
-        "128.00": "33570000",
-        "129.00": "33490000",
-        "130.00": "33484000",
-        "131.00": "33462000",
-        "132.00": "33458000",
-        "133.00": "33448000",
-        "134.00": "33440000",
-        "135.00": "33417000"
-      },
+      "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:18.714400+05:30"
+    "last_checked": "2026-07-02T09:42:27.791044+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4658&type=IPO&idtype=1&status=L&IPONo=7801&startdt=30%2F06%2F2026": {
     "name": "Atharva Poly-Plast",
     "listing_date": "2026-07-07",
-    "hash": "5154e168d71c25b899e6f4a6bb598fc2ba5d4bd634fda15e6238519afde03b7d",
+    "hash": "f3cb8a59fb908f378c8d257cb6021a75c09f0b134af06d77a1194494fc0c2c72",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -233,14 +205,10 @@
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
-      "demand": {
-        "55.00": "7232000",
-        "56.00": "7208000",
-        "60.00": "7192000"
-      },
+      "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:19.538850+05:30"
+    "last_checked": "2026-07-02T09:42:28.853479+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4655&type=IPO&idtype=1&status=L&IPONo=7800&startdt=29%2F06%2F2026": {
     "name": "Adon Agro",
@@ -290,7 +258,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:20.733405+05:30"
+    "last_checked": "2026-07-02T09:42:30.342655+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4653&type=IPO&idtype=1&status=L&IPONo=7798&startdt=29%2F06%2F2026": {
     "name": "Aastha Spintex",
@@ -347,6 +315,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-02T06:55:21.550758+05:30"
+    "last_checked": "2026-07-02T09:42:31.355846+05:30"
   }
 }
