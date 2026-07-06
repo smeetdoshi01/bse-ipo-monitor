@@ -1,0 +1,9 @@
+# NSE IPO watchlist
+# Format per line:  YYYY-MM-DD | URL | Name
+#
+# - YYYY-MM-DD = expected LISTING date (IST). After this date + 1 day buffer,
+#   the IPO is auto-dropped and you get a final "stopped tracking" Telegram.
+# - Name is optional — shows up in Telegram alerts.
+# - Lines starting with # and blank lines are ignored.
+
+2026-07-15 | https://www.nseindia.com/market-data/issue-information?symbol=ICELCO&series=SME&type=Active | ICELCO SME
