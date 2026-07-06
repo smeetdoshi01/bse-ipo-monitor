@@ -1,0 +1,45 @@
+name: NSE IPO Monitor
+
+on:
+  schedule:
+    # Every 15 min, offset 5 min from BSE so they don't collide on git push
+    - cron: '5,20,35,50 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Shared with BSE workflow so they serialize their state commits
+  group: ipo-monitor-state
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run NSE monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python nse_monitor.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase || true
+          git add nse_state.json || true
+          git diff --staged --quiet || git commit -m "nse_state: update $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push || true
