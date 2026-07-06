@@ -2,14 +2,15 @@ name: BSE IPO Monitor
 
 on:
   schedule:
-    - cron: '*/15 * * * *'   # every 15 min
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: bse-monitor
+  # Shared with NSE workflow so they serialize their state commits
+  group: ipo-monitor-state
   cancel-in-progress: false
 
 jobs:
@@ -37,6 +38,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase || true
           git add state.json || true
           git diff --staged --quiet || git commit -m "state: update $(date -u +%Y-%m-%dT%H:%MZ)"
           git push || true
