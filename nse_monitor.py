@@ -284,35 +284,67 @@ def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
 
 
 def summarize(canonical: dict) -> str:
-    """Show the most interesting non-noise scalar fields at the top."""
-    # Try common NSE field patterns first
+    """
+    Human-readable snapshot of the current state. Prefers scalar fields
+    in nested objects (like `detail.issueInfo.priceBand`), skips array-
+    indexed paths (like `detail.demandDataBSE[0].symbol`) which are noisy
+    and duplicative in a summary.
+    """
+    # Filter out array-indexed paths — those show up in diffs when they
+    # change, but they clutter a summary.
+    scalar_paths = {k: v for k, v in canonical.items() if "[" not in k}
+
     priority_keywords = [
-        "symbol", "companyname", "issuername", "issue_name",
-        "priceband", "price_band", "issueprice",
-        "issuesize", "issue_size", "totalissuesize",
-        "issueperiod", "issueopendate", "issuestartdate",
-        "issueclosedate", "closingdate",
-        "lotsize", "lot_size", "marketlot",
-        "status", "issuestatus",
-        "listingdate", "listing_date",
-        "subscription", "subs",
+        # Company + name
+        ("companyname", "coname", "issuername"),
+        # Symbol / series
+        ("symbol",),
+        ("series",),
+        # Price
+        ("priceband", "price_band", "issueprice", "priceoffer"),
+        ("facevalue", "face_value"),
+        # Sizing
+        ("issuesize", "issue_size", "totalissuesize", "totalIssuesizerscr"),
+        ("lotsize", "lot_size", "marketlot"),
+        # Dates
+        ("issueperiod",),
+        ("openingdate", "startdate", "issueopendate", "issue_open"),
+        ("closingdate", "enddate", "issueclosedate", "issue_close"),
+        ("listingdate", "listing_date"),
+        # Status
+        ("status", "issuestatus"),
+        # Subscription rollup
+        ("totalsubs", "totalsubscription", "oversubscription", "subsratio"),
     ]
+
     parts = []
-    seen_keys = set()
-    for kw in priority_keywords:
-        for key, val in canonical.items():
-            if kw in key.lower() and key not in seen_keys:
-                if isinstance(val, (str, int, float, bool)) and str(val).strip():
-                    parts.append(f"{key}: {val}")
-                    seen_keys.add(key)
-                    if len(parts) >= 15:
-                        break
+    used_keys = set()
+
+    for keyword_group in priority_keywords:
+        # For each keyword group, take at most ONE matching field
+        for kw in keyword_group:
+            hit = None
+            for key, val in scalar_paths.items():
+                if key in used_keys:
+                    continue
+                if kw not in key.lower():
+                    continue
+                if not isinstance(val, (str, int, float, bool)):
+                    continue
+                if not str(val).strip():
+                    continue
+                hit = (key, val)
+                break
+            if hit:
+                parts.append(f"{hit[0]}: {hit[1]}")
+                used_keys.add(hit[0])
+                break  # move to next keyword group
         if len(parts) >= 15:
             break
 
-    # Fallback: if no priority matches, show first 15 non-empty scalars
+    # Fallback: if we found nothing, show first 12 scalar fields
     if not parts:
-        for key, val in list(canonical.items())[:15]:
+        for key, val in list(scalar_paths.items())[:12]:
             if isinstance(val, (str, int, float, bool)) and str(val).strip():
                 parts.append(f"{key}: {val}")
 
