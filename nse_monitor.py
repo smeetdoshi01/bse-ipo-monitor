@@ -285,70 +285,50 @@ def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
 
 def summarize(canonical: dict) -> str:
     """
-    Human-readable snapshot of the current state. Prefers scalar fields
-    in nested objects (like `detail.issueInfo.priceBand`), skips array-
-    indexed paths (like `detail.demandDataBSE[0].symbol`) which are noisy
-    and duplicative in a summary.
+    Show all scalar (non-array) fields, grouped by their parent endpoint.
+    NSE's response structure varies, so rather than relying on keyword
+    matching alone, we surface every non-array field so the user sees
+    the full picture.
     """
-    # Filter out array-indexed paths — those show up in diffs when they
-    # change, but they clutter a summary.
-    scalar_paths = {k: v for k, v in canonical.items() if "[" not in k}
+    # Filter to scalar, non-array paths
+    scalar_paths = {
+        k: v for k, v in canonical.items()
+        if "[" not in k and isinstance(v, (str, int, float, bool)) and str(v).strip()
+    }
+    if not scalar_paths:
+        return "(no scalar fields — data may be entirely inside arrays)"
 
-    priority_keywords = [
-        # Company + name
-        ("companyname", "coname", "issuername"),
-        # Symbol / series
-        ("symbol",),
-        ("series",),
-        # Price
-        ("priceband", "price_band", "issueprice", "priceoffer"),
-        ("facevalue", "face_value"),
-        # Sizing
-        ("issuesize", "issue_size", "totalissuesize", "totalIssuesizerscr"),
-        ("lotsize", "lot_size", "marketlot"),
-        # Dates
-        ("issueperiod",),
-        ("openingdate", "startdate", "issueopendate", "issue_open"),
-        ("closingdate", "enddate", "issueclosedate", "issue_close"),
-        ("listingdate", "listing_date"),
-        # Status
-        ("status", "issuestatus"),
-        # Subscription rollup
-        ("totalsubs", "totalsubscription", "oversubscription", "subsratio"),
-    ]
+    # Optional prioritization: put common IPO fields at the top
+    priority_substrings = (
+        "companyname", "coname", "issuername",
+        "symbol", "series",
+        "priceband", "price_band", "issueprice",
+        "facevalue", "face_value",
+        "issuesize", "issue_size", "totalissuesize",
+        "lotsize", "lot_size", "marketlot",
+        "issueperiod", "openingdate", "startdate", "closingdate", "enddate",
+        "listingdate",
+        "status", "issuestatus",
+        "issuetype",
+    )
+    priority = []
+    priority_keys = set()
+    for sub in priority_substrings:
+        for key, val in scalar_paths.items():
+            if key in priority_keys:
+                continue
+            if sub in key.lower():
+                priority.append((key, val))
+                priority_keys.add(key)
+    remaining = [(k, v) for k, v in scalar_paths.items() if k not in priority_keys]
 
-    parts = []
-    used_keys = set()
-
-    for keyword_group in priority_keywords:
-        # For each keyword group, take at most ONE matching field
-        for kw in keyword_group:
-            hit = None
-            for key, val in scalar_paths.items():
-                if key in used_keys:
-                    continue
-                if kw not in key.lower():
-                    continue
-                if not isinstance(val, (str, int, float, bool)):
-                    continue
-                if not str(val).strip():
-                    continue
-                hit = (key, val)
-                break
-            if hit:
-                parts.append(f"{hit[0]}: {hit[1]}")
-                used_keys.add(hit[0])
-                break  # move to next keyword group
-        if len(parts) >= 15:
-            break
-
-    # Fallback: if we found nothing, show first 12 scalar fields
-    if not parts:
-        for key, val in list(scalar_paths.items())[:12]:
-            if isinstance(val, (str, int, float, bool)) and str(val).strip():
-                parts.append(f"{key}: {val}")
-
-    return "\n".join(parts) if parts else "(no recognizable fields)"
+    # Cap the total output
+    all_items = priority + remaining
+    capped = all_items[:25]
+    lines = [f"{k}: {v}" for k, v in capped]
+    if len(all_items) > 25:
+        lines.append(f"... and {len(all_items) - 25} more")
+    return "\n".join(lines)
 
 
 def is_subscription_only(changed_fields: list[str]) -> bool:
