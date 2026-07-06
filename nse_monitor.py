@@ -243,25 +243,101 @@ def _flatten(obj, prefix=""):
 
 def canonicalize(data: dict) -> dict:
     """
-    Flatten each endpoint's response into dotted paths and drop noise
-    (timestamp fields, error placeholders).
+    Transform NSE's raw API responses into a stable, diff-friendly form.
+
+    NSE's payload has heavy duplication (BSE vs NSE demand curves, activeCat
+    vs bidDetails, demandGraph vs demandGraphALL) and lots of noise (headers,
+    disclaimers, updateTime strings). We collapse it to:
+
+      {
+        "info":         { Title: Value, ... },   # static IPO details
+        "subscription": { Subscription (x): "61.83", Total Bids: "..." },
+        "categories":   { CategoryName: "N shares / M apps", ... },
+        "demand":       { price: cumulativeQty, ... }
+      }
+
+    Only `info.*` changes fire alerts. subscription/categories/demand tick
+    during the open period and are treated as noise.
     """
-    out = {}
-    for endpoint_name, response in data.items():
-        if not isinstance(response, (dict, list)):
-            continue
-        if isinstance(response, dict) and "_error" in response:
-            continue
-        for path, value in _flatten(response, prefix=endpoint_name):
-            # Drop known noise keys anywhere in the path
-            segments = re.split(r"[.\[]", path)
-            last_segment = segments[-1].rstrip("]")
-            if last_segment in NOISE_KEYS:
+    out = {"info": {}, "subscription": {}, "categories": {}, "demand": {}}
+
+    detail = data.get("detail") if isinstance(data, dict) else None
+    if not isinstance(detail, dict):
+        return out
+
+    # ---- 1. issueInfo.dataList → flat title:value map ----
+    issue_info = detail.get("issueInfo", {})
+    if isinstance(issue_info, dict):
+        heading = str(issue_info.get("heading", "")).strip()
+        if heading and heading != issue_info.get("symbol", ""):
+            out["info"]["Company Name"] = heading
+
+        for row in issue_info.get("dataList", []) or []:
+            if not isinstance(row, dict):
                 continue
-            if _looks_like_timestamp(value):
+            title = str(row.get("title", "")).strip()
+            value = str(row.get("value", "")).strip()
+            if not title or not value:
                 continue
-            out[path] = value if value is not None else ""
+            # Skip HTML link entries and very long disclaimers — they clutter
+            # summaries and don't produce useful diffs
+            if "<a href" in value or value.startswith("http"):
+                # Keep the URL but strip HTML wrapper for cleaner display
+                url_match = re.search(r'https?://\S+?(?=[\s"<>]|$)', value)
+                if url_match:
+                    value = url_match.group(0).rstrip(">")
+            if len(value) > 300:
+                value = value[:300].rstrip() + "…"
+            out["info"][title] = value
+
+    # ---- 2. Dynamic subscription metrics ----
+    demand_graph = detail.get("demandGraph", {})
+    if isinstance(demand_graph, dict):
+        subs = str(demand_graph.get("noOfTimesIssueSubscribed", "")).strip()
+        if subs:
+            out["subscription"]["Subscription (x)"] = subs
+        total_bids = str(demand_graph.get("totalBidRecieved") or
+                         demand_graph.get("TOTAL_BIDS") or "").strip()
+        if total_bids:
+            out["subscription"]["Total Bids"] = total_bids
+        total_at_cutoff = str(demand_graph.get("totalBidAtCutOff", "")).strip()
+        if total_at_cutoff and total_at_cutoff != "-":
+            out["subscription"]["Bids at Cut-off"] = total_at_cutoff
+
+    # ---- 3. Category-wise bid data (per bidDetails) ----
+    for row in detail.get("bidDetails", []) or []:
+        if not isinstance(row, dict):
+            continue
+        cat = str(row.get("category", "")).strip()
+        if not cat or cat.lower() in ("category", ""):
+            continue
+        bid = str(row.get("noOfshareBid", "")).strip()
+        apps = str(row.get("noofapplication", "")).strip()
+        if bid and apps:
+            out["categories"][cat] = f"{bid} shares / {apps} apps"
+        elif bid:
+            out["categories"][cat] = f"{bid} shares"
+
+    # ---- 4. Demand curve (price → cumulative qty) ----
+    for row in detail.get("demandDataNSE", []) or []:
+        if not isinstance(row, dict):
+            continue
+        price = str(row.get("price", "")).strip()
+        cum_qty = str(row.get("cumQty", "")).strip()
+        if price and cum_qty:
+            out["demand"][price] = cum_qty
+
     return out
+
+
+def _flatten_canonical(c: dict) -> dict:
+    """Flatten the canonical dict into dotted-path keys for hashing/diffing."""
+    flat = {}
+    for section, items in c.items():
+        if isinstance(items, dict):
+            for k, v in items.items():
+                flat[f"{section}.{k}"] = v
+    return flat
 
 
 # ---------- Diff & summarize ----------
@@ -284,63 +360,51 @@ def build_diff(old: dict, new: dict) -> tuple[str, list[str]]:
 
 
 def summarize(canonical: dict) -> str:
-    """
-    Show all scalar (non-array) fields, grouped by their parent endpoint.
-    NSE's response structure varies, so rather than relying on keyword
-    matching alone, we surface every non-array field so the user sees
-    the full picture.
-    """
-    # Filter to scalar, non-array paths
-    scalar_paths = {
-        k: v for k, v in canonical.items()
-        if "[" not in k and isinstance(v, (str, int, float, bool)) and str(v).strip()
-    }
-    if not scalar_paths:
-        return "(no scalar fields — data may be entirely inside arrays)"
+    """Human-readable snapshot of the canonicalized IPO state."""
+    info = canonical.get("info", {})
+    subs = canonical.get("subscription", {})
+    if not info and not subs:
+        return "(no info captured)"
 
-    # Optional prioritization: put common IPO fields at the top
-    priority_substrings = (
-        "companyname", "coname", "issuername",
-        "symbol", "series",
-        "priceband", "price_band", "issueprice",
-        "facevalue", "face_value",
-        "issuesize", "issue_size", "totalissuesize",
-        "lotsize", "lot_size", "marketlot",
-        "issueperiod", "openingdate", "startdate", "closingdate", "enddate",
-        "listingdate",
-        "status", "issuestatus",
-        "issuetype",
-    )
-    priority = []
-    priority_keys = set()
-    for sub in priority_substrings:
-        for key, val in scalar_paths.items():
-            if key in priority_keys:
-                continue
-            if sub in key.lower():
-                priority.append((key, val))
-                priority_keys.add(key)
-    remaining = [(k, v) for k, v in scalar_paths.items() if k not in priority_keys]
+    # Priority order for info section — most useful first
+    priority_titles = [
+        "Company Name", "Symbol", "Issue Period", "Issue Type",
+        "Price Range", "Face Value", "Issue Size",
+        "Lot Size", "Tick Size",
+        "Maximum Bid Quantity for QIB Investors",
+        "Maximum Bid Quantity for NIB Investors",
+        "Book Running Lead Managers", "Sponsor Bank",
+        "Name of the Registrar",
+    ]
 
-    # Cap the total output
-    all_items = priority + remaining
-    capped = all_items[:25]
-    lines = [f"{k}: {v}" for k, v in capped]
-    if len(all_items) > 25:
-        lines.append(f"... and {len(all_items) - 25} more")
-    return "\n".join(lines)
+    parts = []
+    used = set()
+    for title in priority_titles:
+        if title in info:
+            parts.append(f"{title}: {info[title]}")
+            used.add(title)
+
+    # Add live subscription metrics
+    for label in ("Subscription (x)", "Total Bids", "Bids at Cut-off"):
+        if label in subs:
+            parts.append(f"{label}: {subs[label]}")
+
+    # Cap at 20 lines
+    if len(parts) > 20:
+        parts = parts[:20] + [f"... and {len(parts) - 20} more fields"]
+    return "\n".join(parts) if parts else "(nothing to show)"
 
 
 def is_subscription_only(changed_fields: list[str]) -> bool:
-    """True iff every changed field looks like subscription/demand noise."""
+    """
+    Alert only on `info.*` changes (static IPO details: price band, dates,
+    period, notices, etc.). subscription.*, categories.*, and demand.* all
+    tick during the open window and are noise.
+    """
     if not changed_fields:
         return False
-    keywords = ("bid.", "demand.", "subscription", "subs", "cumulative",
-                "totalbid", "total_bid", "sharesqty", "shares_qty",
-                "quantity", "qty", "times", "oversub", "ratio")
     for f in changed_fields:
-        f_l = f.lower()
-        if not any(k in f_l for k in keywords):
+        if f.startswith("info."):
             return False
     return True
 
@@ -357,11 +421,13 @@ def check_one(ipo: dict, state: dict) -> None:
         return
 
     data = canonicalize(raw)
-    if not data:
-        print("  ✗ canonicalized data is empty; skipping (state untouched)")
+    if not data.get("info"):
+        print("  ✗ canonicalized data has no info section; skipping (state untouched)")
         return
 
-    canonical_json = json.dumps(data, sort_keys=True, default=str)
+    # Flatten for stable hashing/diffing
+    flat = _flatten_canonical(data)
+    canonical_json = json.dumps(flat, sort_keys=True, default=str)
     new_hash = hashlib.sha256(canonical_json.encode()).hexdigest()
 
     entry = state.get(url, {})
@@ -376,7 +442,7 @@ def check_one(ipo: dict, state: dict) -> None:
             "series": ipo["series"],
             "listing_date": ipo["listing_date"].isoformat(),
             "hash": new_hash,
-            "data": data,
+            "data": flat,
             "last_checked": datetime.now(IST).isoformat(),
         }
         send_telegram(
@@ -422,7 +488,7 @@ def check_one(ipo: dict, state: dict) -> None:
         "series": ipo["series"],
         "listing_date": ipo["listing_date"].isoformat(),
         "hash": new_hash,
-        "data": data,
+        "data": flat,
         "last_checked": datetime.now(IST).isoformat(),
     })
 
