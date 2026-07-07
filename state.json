@@ -54,7 +54,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-07T23:48:46.763030+05:30"
+    "last_checked": "2026-07-08T01:52:13.093080+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4662&type=IPO&idtype=1&status=L&IPONo=7808&startdt=30%2F06%2F2026": {
     "name": "Seemax Resources",
@@ -100,7 +100,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-07T23:48:47.403149+05:30"
+    "last_checked": "2026-07-08T01:52:14.074553+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4660&type=IPO&idtype=1&status=L&IPONo=7806&startdt=30%2F06%2F2026": {
     "name": "Sampark India",
@@ -145,7 +145,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-07T23:48:48.048345+05:30"
+    "last_checked": "2026-07-08T01:52:15.014777+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4659&type=IPO&idtype=1&status=L&IPONo=7807&startdt=30%2F06%2F2026": {
     "name": "Kratikal",
@@ -197,7 +197,7 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-07T23:48:48.816831+05:30"
+    "last_checked": "2026-07-08T01:52:15.818801+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4658&type=IPO&idtype=1&status=L&IPONo=7801&startdt=30%2F06%2F2026": {
     "name": "Atharva Poly-Plast",
@@ -244,113 +244,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-07T23:48:49.464854+05:30"
-  },
-  "https://www.bseindia.com/markets/publicissues/displayipo?id=4655&type=IPO&idtype=1&status=L&IPONo=7800&startdt=29%2F06%2F2026": {
-    "name": "Adon Agro",
-    "listing_date": "2026-07-06",
-    "hash": "c9d5a6ab31e4631c0a7e0e3978e7a991573c8bbf519a73039ec060407f0c9dc6",
-    "data": {
-      "details": {
-        "ISBID_Detail": "1",
-        "IPO_NO": "7,800",
-        "ScripCode": "4,655",
-        "ScripName": "Adon Agro Commodities Limited",
-        "Security Type": "Equity",
-        "Symbol": "ADON",
-        "Issue Period": "29 Jun 2026 to 01 Jul 2026",
-        "Issue Size – No. of Shares": "62,90,000",
-        "Price Band": "66.00-70.00",
-        "Price-Band Advertisement": "https://www.bseindia.com/downloads/ipo/AACL_PriceBandAdvertisement_250620262324.pdf",
-        "IPO Categories": "FI, IC, MF, FII, OTH, CO, IND, NOH",
-        "UPI Categories": "IND",
-        "Face Value": "10",
-        "Tick Size": "1",
-        "Market Lot": "2,000",
-        "Minimum Bid Quantity": "4,000",
-        "Maximum Bid Quantity for Qualified Institutional Investors": "59,74,000",
-        "Maximum Bid Quantity for Non-Institutional Investors": "59,10,000",
-        "Book Running Lead Manager": "Galactico Corporate Services Limited^408, 93 East Building,\nMahakali Caves Road, Shanti Nagar,\nAndheri East, Mumbai – 400093, India||||||||info@galacticocorp.com|Mr. Vishal Sancheti",
-        "Syndicate Member": "https://listing.bseindia.com/Download/E:\\inetpub\\LISTING\\RTA\\DocumentsSMEiPO\\272724\\Syndicate_Member_13.Syndicate_Agreement.pdf",
-        "Eligible Banks": "https://listing.bseindia.com/Download/E:\\inetpub\\LISTING\\RTA\\DocumentsSMEiPO\\272724\\Eligible_Banks_8.BiddingCentersforRandNRforms.pdf",
-        "Registrar": "KFin Technologies Limited^301, The Centrium, 3rd Floor, 57, Lal Bahadur Shastri road, Nav Pada, Kurla (West), Mumbai – 400070, Maharashtra, India||||||||aacl.ipo@kfintech.com",
-        "Sponsor Bank": "IndusInd Bank^4th Floor, Tower No. 1, VRSCCL,\nVashi Railway Station Complex,\nVashi, Navi Mumbai, Maharashtra – 400703||||||||nseclg@indusind.com|Mr. Kaushik Chatterjee",
-        "Prospectus & GID": "https://www.bseindia.com/downloads/ipo/AACL - RHP&GID_250620262324.zip",
-        "Corrigendum": "https://www.bseindia.com/downloads/ipo/AACL - Corrigendum to RHP_250620262324.zip",
-        "Blank ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BlankForms_New.aspx?ipo=4655",
-        "Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BidEntryQuick_New.aspx?ipo=4655",
-        "Revised Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/SrchBid.aspx?ipo=4655",
-        "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
-        "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
-        "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
-      },
-      "demand": {
-        "66.00": "8404000",
-        "67.00": "8360000",
-        "68.00": "8356000",
-        "69.00": "8356000",
-        "70.00": "8348000"
-      },
-      "api_status": "success"
-    },
-    "last_checked": "2026-07-07T23:48:50.063643+05:30"
-  },
-  "https://www.bseindia.com/markets/publicissues/displayipo?id=4653&type=IPO&idtype=1&status=L&IPONo=7798&startdt=29%2F06%2F2026": {
-    "name": "Aastha Spintex",
-    "listing_date": "2026-07-06",
-    "hash": "92b0d1ad8e440aa99f91ca9fca9958b011e57dcb7ed6705d58229b87eac7859f",
-    "data": {
-      "details": {
-        "ISBID_Detail": "1",
-        "IPO_NO": "7,798",
-        "ScripCode": "4,653",
-        "ScripName": "Aastha Spintex Limited",
-        "Security Type": "Equity",
-        "Symbol": "AASTHA",
-        "Issue Period": "29 Jun 2026 to 01 Jul 2026",
-        "Issue Size – No. of Shares": "1,36,00,000",
-        "Price Band": "125.00-136.00",
-        "Price-Band Advertisement": "https://listing.bseindia.com/Download//PreAnchor/PriceBandadv_20260624140604.zip",
-        "IPO Categories": "FI, IC, MF, FII, OTH, CO, IND, NOH",
-        "UPI Categories": "IND",
-        "Cut off Amount (Rs.)": "IND - 200000",
-        "Face Value": "10",
-        "Tick Size": "1",
-        "Market Lot": "110",
-        "Minimum Bid Quantity": "110",
-        "Maximum Bid Quantity for Qualified Institutional Investors": "1,35,99,960",
-        "Maximum Bid Quantity for Non-Institutional Investors": "1,08,79,990",
-        "Book Running Lead Manager": "BOI Merchant Bankers Limited^Bank of India Building, 2nd Floor 70-80 MG Road Fort Mumbai 400001||||||||info@boimb.com|Sanjay M. Phadke",
-        "Co-Book Running Lead Manager": "PNB Investment Services Limited^PNB Pragati Towers, 2nd Floor, C-9, G Block, Bandra Kurla Complex, Bandra East, Mumbai- 400 051, Maharashtra, India.||||||||projectaastha@pnbisl.com",
-        "Registrar": "Bigshare Services Private Limited^S6-2, 6th Floor, Pinnacle Business Park, Next to Ahura Centre, Mahakali Caves Road, Andheri (East), Mumbai-400073, Maharashtra, India||||||||ipo@bigshareonline.com",
-        "Sponsor Bank": "ICICI BANK^Capital Market Division, 163, 5th Floor, H.T. Parekh Marg, Backbay Reclamation, Churchgate, Mumbai – 400020, Maharashtra, India||||||||ipocmg@icici.bank.in|Varun Badai",
-        "Prospectus & GID": "https://www.bseindia.com/downloads/ipo/RHP&GID_250620262308.zip",
-        "Blank ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BlankForms_New.aspx?ipo=4653",
-        "Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BidEntryQuick_New.aspx?ipo=4653",
-        "Revised Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/SrchBid.aspx?ipo=4653",
-        "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
-        "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
-        "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
-      },
-      "demand": {
-        "125.00": "18312360",
-        "126.00": "18261980",
-        "127.00": "18256040",
-        "128.00": "18252850",
-        "129.00": "18249330",
-        "130.00": "18245810",
-        "131.00": "18227110",
-        "132.00": "18223810",
-        "133.00": "18221720",
-        "134.00": "18220730",
-        "135.00": "18217870",
-        "136.00": "18214900",
-        "Cut-off": "4718230"
-      },
-      "api_status": "success"
-    },
-    "last_checked": "2026-07-07T23:48:50.691941+05:30"
+    "last_checked": "2026-07-08T01:52:16.564883+05:30"
   }
 }
