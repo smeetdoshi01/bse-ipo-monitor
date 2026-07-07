@@ -4,7 +4,7 @@
     "symbol": "ICELCO",
     "series": "SME",
     "listing_date": "2026-07-15",
-    "hash": "35dbfd91bfa9e5a1b13e0a083eb66c1e10f3991f1517e0558865f055108ef84e",
+    "hash": "8bf98f9b33a90a21e4625f24c4700e1991bea46c76c1aafc72ede4316c3955de",
     "data": {
       "info.Company Name": "IC Electricals Company Limited",
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment mech…",
@@ -52,14 +52,8 @@
       "categories.Individuals(IND category bidding for more than 2 Lots)": "97519200 shares / 23962 apps",
       "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "98836800 shares / 24290 apps",
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
-      "categories.Total": "1356800400 shares / 313014 apps",
-      "demand.99": "1,35,46,34,400",
-      "demand.98": "1,35,48,04,800",
-      "demand.97": "1,35,56,73,600",
-      "demand.96": "1,35,57,72,000",
-      "demand.95": "1,35,59,31,600",
-      "demand.94": "1,35,68,00,400"
+      "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-07T23:52:44.599116+05:30"
+    "last_checked": "2026-07-08T01:58:11.138793+05:30"
   }
 }
