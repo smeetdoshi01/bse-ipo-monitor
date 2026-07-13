@@ -54,14 +54,14 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-13T14:49:41.556616+05:30"
+    "last_checked": "2026-07-13T15:31:19.856142+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
     "symbol": "HAPPY",
     "series": "SME",
     "listing_date": "2026-07-16",
-    "hash": "fba9c20cad8df1653259c04d9bf0b86753546ec2713488a23e928cead5e6892d",
+    "hash": "9994b8d9c32b5a0353d911df0373d285acf2cdd0b6bac6d1227962ea88314646",
     "data": {
       "info.Company Name": "Happy Steels Limited",
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment mech…",
@@ -96,34 +96,34 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "42.32",
-      "subscription.Total Bids": "114778000",
-      "categories.Qualified Institutional Buyers(QIBs)": "10372000 shares / 11 apps",
+      "subscription.Subscription (x)": "62.79",
+      "subscription.Total Bids": "170298000",
+      "categories.Qualified Institutional Buyers(QIBs)": "24768000 shares / 19 apps",
       "categories.Foreign Institutional Investors(FIIs)": "1362000 shares / 1 apps",
       "categories.Domestic Financial Institutions(Banks/ Financial Institutions(FIs)/ Insurance Companies)": "0 shares / 0 apps",
       "categories.Mutual funds": "0 shares / 0 apps",
-      "categories.Others": "216000 shares / 36 apps",
-      "categories.Non Institutional Investors": "42226000 shares / 3509 apps",
-      "categories.Non Institutional Investors(Bid amount of more than Ten Lakh Rupees)": "32826000 shares / 2008 apps",
-      "categories.Corporates": "128000 shares / 20 apps",
-      "categories.Individuals(IND category bidding for more than 2 Lots)": "9056000 shares / 1445 apps",
-      "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "9400000 shares / 1501 apps",
-      "categories.Individual Investors (IND category bidding for 2 Lots)": "62180000 shares / 15545 apps",
-      "categories.Total": "114778000 shares / 19065 apps",
-      "demand.66": "11,45,54,000",
-      "demand.65": "11,45,58,000",
-      "demand.64": "11,45,78,000",
-      "demand.63": "11,46,06,000",
-      "demand.62": "11,47,78,000"
+      "categories.Others": "288000 shares / 48 apps",
+      "categories.Non Institutional Investors": "60234000 shares / 5125 apps",
+      "categories.Non Institutional Investors(Bid amount of more than Ten Lakh Rupees)": "45854000 shares / 2815 apps",
+      "categories.Corporates": "592000 shares / 97 apps",
+      "categories.Individuals(IND category bidding for more than 2 Lots)": "13500000 shares / 2165 apps",
+      "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "14380000 shares / 2310 apps",
+      "categories.Individual Investors (IND category bidding for 2 Lots)": "85296000 shares / 21324 apps",
+      "categories.Total": "170298000 shares / 26468 apps",
+      "demand.66": "17,00,54,000",
+      "demand.65": "17,00,66,000",
+      "demand.64": "17,00,86,000",
+      "demand.63": "17,01,18,000",
+      "demand.62": "17,02,98,000"
     },
-    "last_checked": "2026-07-13T14:49:43.063654+05:30"
+    "last_checked": "2026-07-13T15:31:25.749347+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
     "symbol": "LASERPOWER",
     "series": "EQ",
     "listing_date": "2026-07-16",
-    "hash": "5c14a804a889c7e0056aad9904058ddd5fb9a41a3e42ea870a5ddc2f412ac73f",
+    "hash": "1cbf62f4e8b529931ebc0c964fe122901591589cf8d33f98b1ece0019e02b864",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "LASERPOWER",
@@ -161,24 +161,24 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "11.27",
-      "subscription.Total Bids": "288422120",
-      "subscription.Bids at Cut-off": "33123230",
-      "demand.Cut-Off": "3,31,23,230",
-      "demand.214": "28,83,00,180",
-      "demand.213": "28,83,02,770",
-      "demand.212": "28,83,12,990",
-      "demand.211": "28,83,15,930",
-      "demand.210": "28,83,33,920",
-      "demand.209": "28,83,36,370",
-      "demand.208": "28,83,44,350",
-      "demand.207": "28,83,48,900",
-      "demand.206": "28,83,49,460",
-      "demand.205": "28,83,59,190",
-      "demand.204": "28,83,64,790",
-      "demand.203": "28,84,22,120"
+      "subscription.Subscription (x)": "20.08",
+      "subscription.Total Bids": "513824080",
+      "subscription.Bids at Cut-off": "39958450",
+      "demand.Cut-Off": "3,99,58,450",
+      "demand.214": "51,36,89,330",
+      "demand.213": "51,36,93,180",
+      "demand.212": "51,37,04,730",
+      "demand.211": "51,37,07,740",
+      "demand.210": "51,37,27,270",
+      "demand.209": "51,37,29,720",
+      "demand.208": "51,37,37,840",
+      "demand.207": "51,37,42,460",
+      "demand.206": "51,37,43,090",
+      "demand.205": "51,37,54,990",
+      "demand.204": "51,37,61,220",
+      "demand.203": "51,38,24,080"
     },
-    "last_checked": "2026-07-13T14:49:44.635240+05:30"
+    "last_checked": "2026-07-13T15:31:27.348891+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
@@ -225,7 +225,7 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "demand.-": "-"
     },
-    "last_checked": "2026-07-13T14:49:50.390589+05:30"
+    "last_checked": "2026-07-13T15:31:33.014259+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -268,6 +268,6 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "demand.-": "-"
     },
-    "last_checked": "2026-07-13T14:49:56.477499+05:30"
+    "last_checked": "2026-07-13T15:31:38.632158+05:30"
   }
 }
