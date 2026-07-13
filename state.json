@@ -2,7 +2,7 @@
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4680&type=IPO&idtype=1&status=F&IPONo=7824&startdt=14%2F07%2F2026": {
     "name": "Millworks",
     "listing_date": "2026-07-21",
-    "hash": "27c70a522a44bfd1e424b4cac7adb690de0a7aa55ae25718eeb5a810d1817110",
+    "hash": "d8a535346b1ed53c52152747aa72c69168cf130e4d9fbca30f4ee1c64011d411",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -12,7 +12,7 @@
         "Security Type": "Equity",
         "Symbol": "MILLWORKS",
         "Issue Period": "14 Jul 2026 to 16 Jul 2026",
-        "Issue Size – No. of Shares": "48,44,000",
+        "Issue Size – No. of Shares": "35,18,800",
         "Price Band": "315.00-331.00",
         "Price-Band Advertisement": "https://www.bseindia.com/downloads/ipo/Price Band Advertisment_100720261412.pdf",
         "IPO Categories": "FI, IC, MF, FII, OTH, CO, IND, NOH",
@@ -21,7 +21,7 @@
         "Tick Size": "1",
         "Market Lot": "400",
         "Minimum Bid Quantity": "800",
-        "Maximum Bid Quantity for Qualified Institutional Investors": "44,20,000",
+        "Maximum Bid Quantity for Qualified Institutional Investors": "30,94,800",
         "Maximum Bid Quantity for Non-Institutional Investors": "22,10,800",
         "Book Running Lead Manager": "GYR CAPITAL ADVISORS PRIVATE LIMITED^428, Gala Empire, Near JB Tower, Drive in Road, Thaltej, Ahmedabad-380 054, Gujarat, India.||||||||millworks.ipo@gyrcapitaladvisors.in|Mohit Baid",
         "Registrar": "Purva Sharegistry India Private Limited^Unit no.9 Shiv Shakti India, Estt, J.R. Boricha Marg, Lower Parel, Mumbai- 400 011.||||||||newissue@purvashare.com",
@@ -38,7 +38,7 @@
       "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-14T00:45:09.959305+05:30"
+    "last_checked": "2026-07-14T02:05:13.608320+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026": {
     "name": "Devson",
@@ -88,6 +88,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-14T00:45:10.956236+05:30"
+    "last_checked": "2026-07-14T02:05:14.785597+05:30"
   }
 }
