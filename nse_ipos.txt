@@ -7,3 +7,7 @@
 # - Lines starting with # and blank lines are ignored.
 
 2026-07-15 | https://www.nseindia.com/market-data/issue-information?symbol=ICELCO&series=SME&type=Active | ICELCO SME
+2026-07-16 | https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active | Happy Steels
+2026-07-16 | https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active | Laser Power
+2026-07-21 | https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming | SBI Fund Management
+2026-07-21 | https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming | Alpine
