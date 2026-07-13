@@ -38,12 +38,12 @@
       "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-13T16:21:48.195297+05:30"
+    "last_checked": "2026-07-13T18:43:42.194775+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026": {
     "name": "Devson",
     "listing_date": "2026-07-16",
-    "hash": "9c2a1e4e4ac294d8a143cedfac91dee2366e8b96853672bbc168a2575bbfe0ed",
+    "hash": "713770aad93c9871034c4eafca0beaadf7b225cb736fa814baa1f8f35a8c9189",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -78,16 +78,16 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "112.00": "525652800",
-        "113.00": "525039600",
-        "114.00": "524990400",
-        "115.00": "524960400",
-        "116.00": "524876400",
-        "117.00": "524786400",
-        "118.00": "524577600"
+        "112.00": "530534400",
+        "113.00": "529910400",
+        "114.00": "529861200",
+        "115.00": "529831200",
+        "116.00": "529747200",
+        "117.00": "529650000",
+        "118.00": "529426800"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-13T16:21:48.962936+05:30"
+    "last_checked": "2026-07-13T18:43:43.532197+05:30"
   }
 }
