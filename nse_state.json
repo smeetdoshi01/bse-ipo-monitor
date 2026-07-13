@@ -54,14 +54,14 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-13T23:13:47.356687+05:30"
+    "last_checked": "2026-07-14T00:35:49.387908+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
     "symbol": "HAPPY",
     "series": "SME",
     "listing_date": "2026-07-16",
-    "hash": "6b0d5efc66936eab3103c2997330fa1cf282bd2c1791a78a6d6dfcc08c9deaaa",
+    "hash": "f1d6de783e86358a4b2e6ddc04ebc85ee961f6fed8798d9298f2bbfb3147889b",
     "data": {
       "info.Company Name": "Happy Steels Limited",
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment mech…",
@@ -109,21 +109,16 @@
       "categories.Individuals(IND category bidding for more than 2 Lots)": "14046000 shares / 2254 apps",
       "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "14986000 shares / 2409 apps",
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
-      "categories.Total": "196434000 shares / 28384 apps",
-      "demand.66": "19,61,78,000",
-      "demand.65": "19,61,90,000",
-      "demand.64": "19,62,14,000",
-      "demand.63": "19,62,46,000",
-      "demand.62": "19,64,34,000"
+      "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-13T23:13:53.571286+05:30"
+    "last_checked": "2026-07-14T00:35:56.135384+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
     "symbol": "LASERPOWER",
     "series": "EQ",
     "listing_date": "2026-07-16",
-    "hash": "13c4d9d3d6bdbe4c3e13afb8b62fbf5f19c1faf9043ed34bac9699f6b23d4722",
+    "hash": "1816a30d57417a315b4b8b9b3e39bb25ae56729546c3df1d328caa6e8fd84072",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "LASERPOWER",
@@ -163,35 +158,22 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "subscription.Subscription (x)": "24.71",
       "subscription.Total Bids": "632225300",
-      "subscription.Bids at Cut-off": "49708820",
-      "demand.Cut-Off": "4,97,08,820",
-      "demand.214": "63,20,74,100",
-      "demand.213": "63,20,78,580",
-      "demand.212": "63,20,90,620",
-      "demand.211": "63,20,93,840",
-      "demand.210": "63,21,14,630",
-      "demand.209": "63,21,17,290",
-      "demand.208": "63,21,25,620",
-      "demand.207": "63,21,31,780",
-      "demand.206": "63,21,33,110",
-      "demand.205": "63,21,47,390",
-      "demand.204": "63,21,54,250",
-      "demand.203": "63,22,25,300"
+      "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-13T23:13:58.988239+05:30"
+    "last_checked": "2026-07-14T00:36:01.482921+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "78b03388cbe5b3a0a29b4c6a5240717165099725e16b56dd9284c244cd6bdf06",
+    "hash": "4ec7e13a47b99931a0b4f216bd7b1854d78f38bf2df3803bdb08ff949c3106c7",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
       "info.Issue Period": "14-Jul-2026 to 16-Jul-2026",
       "info.Cut-off time for UPI Mandate Confirmation": "\"16-Jul-2026 (upto 5:00 PM) The new cut-off time for UPI mandate acceptance is 05:00 PM on last day of IPO bidding. Further bids with confirmed status of mandate amount blocked (RC100) shall be considered as valid applications and hence, investors are advised to submit their UPI applications in IPO…",
-      "info.Issue Size": "\"Initial Public Offer comprising of Offer for Sale of up to 17,09,56,631 Equity Shares (Including eligible employees reservation portion of up to 32,57,347 Equity Shares and Shareholder Reservation Portion of up to 1,30,55,629 Equity Shares)\"",
+      "info.Issue Size": "\"Initial Public Offer comprising of Offer for Sale of up to 17,09,56,631 Equity Shares (Including eligible employees reservation portion of up to 32,57,347 Equity Shares and Shareholder Reservation Portion of up to 1,30,55,629 Equity and Anchor Investor Portion of 4,63,93,095 Equity Shares)\"",
       "info.Issue Type": "100% Book Building",
       "info.Price Range": "Rs. 545 to Rs. 574 per Equity Share",
       "info.Discount": "Rs. 54 per equity share to Eligible Employees",
@@ -202,6 +184,8 @@
       "info.Maximum Subscription Amount for Retail Investor": "\"Rs. 2,00,000\"",
       "info.Maximum Subscription Amount for Eligible Shareholders": "\"Rs. 2,00,000\"",
       "info.Maximum Subscription Amount for Eligible Employees": "\"Rs. 5,00,000\"",
+      "info.Maximum Bid Quantity for QIB Investors": "\"10,82,50,558  Equity Shares in multiple of 26 Equity Shares (Calculated at Higher Price band)\"",
+      "info.Maximum Bid Quantity for NIB Investors": "\"7,73,21,816 Equity Shares in multiple of 26 Equity Shares (Calculated at Higher Price band)\"",
       "info.IPO Market Timings": "10.00 a.m. to 5.00 p.m.",
       "info.Book Running Lead Managers": "\"Kotak Mahindra Capital Company Limited, Axis Capital Limited, BofA Securities India Limited, HSBC Securities and Capital Markets (India) Private Limited, ICICI Securities Limited, Jefferies India Private Limited, JM Financial Limited, Motilal Oswal Investment Advisors Limited, SBI Capital Markets L…",
       "info.Sponsor Bank": "\"ICICI Bank Limited , Kotak Mahindra Bank Limited  and State Bank of India\"",
@@ -217,6 +201,8 @@
       "info.Bidding Centers": "https://nsearchives.nseindia.com/content/ipo/BIDDING_CENTERS_SBIFUNDS.zip",
       "info.Sample Application Forms": "https://nsearchives.nseindia.com/content/ipo/FORMS_SBIFUNDS.zip",
       "info.Security Parameters (Pre Anchor)": "https://nsearchives.nseindia.com/content/ipo/PREANCHOR_PARAMETERS_SBIFUNDS.zip",
+      "info.Security Parameters (Post Anchor)": "https://nsearchives.nseindia.com/content/ipo/POSTANCHOR_PARAMETERS_SBIFUNDS.zip",
+      "info.Anchor Allocation Report": "https://nsearchives.nseindia.com/content/ipo/ANCHOR_SBIFUNDS.zip",
       "info.Processing of ASBA Applications": "https://archives.nseindia.com/content/circulars/IPO53197.pdf",
       "info.Remark": "\"The dedicated window provided for bid modification (modification of selected fields viz. DP ID/Client ID or Pan ID, Bank code and Location code) on T+1 day (T being last day of bidding) shall not be available now. The bid modification of selected fields shall be allowed during bidding period of IPO…",
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
@@ -224,7 +210,7 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "demand.-": "-"
     },
-    "last_checked": "2026-07-13T23:14:05.101316+05:30"
+    "last_checked": "2026-07-14T00:36:07.216383+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -267,6 +253,6 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "demand.-": "-"
     },
-    "last_checked": "2026-07-13T23:14:11.433730+05:30"
+    "last_checked": "2026-07-14T00:36:12.772239+05:30"
   }
 }
