@@ -54,14 +54,14 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-13T15:31:19.856142+05:30"
+    "last_checked": "2026-07-13T18:07:31.633850+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
     "symbol": "HAPPY",
     "series": "SME",
     "listing_date": "2026-07-16",
-    "hash": "9994b8d9c32b5a0353d911df0373d285acf2cdd0b6bac6d1227962ea88314646",
+    "hash": "6b0d5efc66936eab3103c2997330fa1cf282bd2c1791a78a6d6dfcc08c9deaaa",
     "data": {
       "info.Company Name": "Happy Steels Limited",
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment mech…",
@@ -96,34 +96,34 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "62.79",
-      "subscription.Total Bids": "170298000",
-      "categories.Qualified Institutional Buyers(QIBs)": "24768000 shares / 19 apps",
-      "categories.Foreign Institutional Investors(FIIs)": "1362000 shares / 1 apps",
-      "categories.Domestic Financial Institutions(Banks/ Financial Institutions(FIs)/ Insurance Companies)": "0 shares / 0 apps",
+      "subscription.Subscription (x)": "72.43",
+      "subscription.Total Bids": "196434000",
+      "categories.Qualified Institutional Buyers(QIBs)": "42606000 shares / 43 apps",
+      "categories.Foreign Institutional Investors(FIIs)": "2428000 shares / 3 apps",
+      "categories.Domestic Financial Institutions(Banks/ Financial Institutions(FIs)/ Insurance Companies)": "72000 shares / 12 apps",
       "categories.Mutual funds": "0 shares / 0 apps",
       "categories.Others": "288000 shares / 48 apps",
-      "categories.Non Institutional Investors": "60234000 shares / 5125 apps",
-      "categories.Non Institutional Investors(Bid amount of more than Ten Lakh Rupees)": "45854000 shares / 2815 apps",
-      "categories.Corporates": "592000 shares / 97 apps",
-      "categories.Individuals(IND category bidding for more than 2 Lots)": "13500000 shares / 2165 apps",
-      "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "14380000 shares / 2310 apps",
-      "categories.Individual Investors (IND category bidding for 2 Lots)": "85296000 shares / 21324 apps",
-      "categories.Total": "170298000 shares / 26468 apps",
-      "demand.66": "17,00,54,000",
-      "demand.65": "17,00,66,000",
-      "demand.64": "17,00,86,000",
-      "demand.63": "17,01,18,000",
-      "demand.62": "17,02,98,000"
+      "categories.Non Institutional Investors": "61532000 shares / 5267 apps",
+      "categories.Non Institutional Investors(Bid amount of more than Ten Lakh Rupees)": "46546000 shares / 2858 apps",
+      "categories.Corporates": "652000 shares / 107 apps",
+      "categories.Individuals(IND category bidding for more than 2 Lots)": "14046000 shares / 2254 apps",
+      "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "14986000 shares / 2409 apps",
+      "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
+      "categories.Total": "196434000 shares / 28384 apps",
+      "demand.66": "19,61,78,000",
+      "demand.65": "19,61,90,000",
+      "demand.64": "19,62,14,000",
+      "demand.63": "19,62,46,000",
+      "demand.62": "19,64,34,000"
     },
-    "last_checked": "2026-07-13T15:31:25.749347+05:30"
+    "last_checked": "2026-07-13T18:07:33.514061+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
     "symbol": "LASERPOWER",
     "series": "EQ",
     "listing_date": "2026-07-16",
-    "hash": "1cbf62f4e8b529931ebc0c964fe122901591589cf8d33f98b1ece0019e02b864",
+    "hash": "13c4d9d3d6bdbe4c3e13afb8b62fbf5f19c1faf9043ed34bac9699f6b23d4722",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "LASERPOWER",
@@ -161,31 +161,31 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "20.08",
-      "subscription.Total Bids": "513824080",
-      "subscription.Bids at Cut-off": "39958450",
-      "demand.Cut-Off": "3,99,58,450",
-      "demand.214": "51,36,89,330",
-      "demand.213": "51,36,93,180",
-      "demand.212": "51,37,04,730",
-      "demand.211": "51,37,07,740",
-      "demand.210": "51,37,27,270",
-      "demand.209": "51,37,29,720",
-      "demand.208": "51,37,37,840",
-      "demand.207": "51,37,42,460",
-      "demand.206": "51,37,43,090",
-      "demand.205": "51,37,54,990",
-      "demand.204": "51,37,61,220",
-      "demand.203": "51,38,24,080"
+      "subscription.Subscription (x)": "24.71",
+      "subscription.Total Bids": "632225300",
+      "subscription.Bids at Cut-off": "49708820",
+      "demand.Cut-Off": "4,97,08,820",
+      "demand.214": "63,20,74,100",
+      "demand.213": "63,20,78,580",
+      "demand.212": "63,20,90,620",
+      "demand.211": "63,20,93,840",
+      "demand.210": "63,21,14,630",
+      "demand.209": "63,21,17,290",
+      "demand.208": "63,21,25,620",
+      "demand.207": "63,21,31,780",
+      "demand.206": "63,21,33,110",
+      "demand.205": "63,21,47,390",
+      "demand.204": "63,21,54,250",
+      "demand.203": "63,22,25,300"
     },
-    "last_checked": "2026-07-13T15:31:27.348891+05:30"
+    "last_checked": "2026-07-13T18:07:38.945453+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "50f639e128b34d565c0490082863d8592689aa14c33de82795c5274c7c89211d",
+    "hash": "78b03388cbe5b3a0a29b4c6a5240717165099725e16b56dd9284c244cd6bdf06",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
@@ -203,8 +203,7 @@
       "info.Maximum Subscription Amount for Eligible Shareholders": "\"Rs. 2,00,000\"",
       "info.Maximum Subscription Amount for Eligible Employees": "\"Rs. 5,00,000\"",
       "info.IPO Market Timings": "10.00 a.m. to 5.00 p.m.",
-      "info.Book Running Lead Managers": "\"Kotak Mahindra Capital Company Limited, Axis Capital Limited, BofA Securities India Limited, HSBC Securities and Capital",
-      "info.Markets (India) Private Limited": "ICICI Securities Limited, Jefferies India Private Limited, JM Financial Limited, Motilal Oswal Investment Advisors Limited, SBI Capital Markets Limited.\"",
+      "info.Book Running Lead Managers": "\"Kotak Mahindra Capital Company Limited, Axis Capital Limited, BofA Securities India Limited, HSBC Securities and Capital Markets (India) Private Limited, ICICI Securities Limited, Jefferies India Private Limited, JM Financial Limited, Motilal Oswal Investment Advisors Limited, SBI Capital Markets L…",
       "info.Sponsor Bank": "\"ICICI Bank Limited , Kotak Mahindra Bank Limited  and State Bank of India\"",
       "info.Categories": "\"FI, IC, MF, FII, OTH, CO, IND, NOH, EMP and SHA\"",
       "info.Sub-Categories applicable for UPI": "\"IND, EMP (upto 5 Lakhs) and SHA (upto 2 Lakhs)\"",
@@ -225,7 +224,7 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "demand.-": "-"
     },
-    "last_checked": "2026-07-13T15:31:33.014259+05:30"
+    "last_checked": "2026-07-13T18:07:44.468605+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -268,6 +267,6 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "demand.-": "-"
     },
-    "last_checked": "2026-07-13T15:31:38.632158+05:30"
+    "last_checked": "2026-07-13T18:07:49.597061+05:30"
   }
 }
