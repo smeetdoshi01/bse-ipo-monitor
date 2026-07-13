@@ -15,3 +15,5 @@
 2026-07-07 | https://www.bseindia.com/markets/publicissues/displayipo?id=4658&type=IPO&idtype=1&status=L&IPONo=7801&startdt=30%2F06%2F2026 | Atharva Poly-Plast
 2026-07-06 | https://www.bseindia.com/markets/publicissues/displayipo?id=4655&type=IPO&idtype=1&status=L&IPONo=7800&startdt=29%2F06%2F2026 | Adon Agro
 2026-07-06 | https://www.bseindia.com/markets/publicissues/displayipo?id=4653&type=IPO&idtype=1&status=L&IPONo=7798&startdt=29%2F06%2F2026 | Aastha Spintex
+2026-07-21 | https://www.bseindia.com/markets/publicissues/displayipo?id=4680&type=IPO&idtype=1&status=F&IPONo=7824&startdt=14%2F07%2F2026 | Millworks
+2026-07-16 | https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026 | Devson
