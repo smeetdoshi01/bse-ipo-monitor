@@ -2,7 +2,7 @@
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4680&type=IPO&idtype=1&status=F&IPONo=7824&startdt=14%2F07%2F2026": {
     "name": "Millworks",
     "listing_date": "2026-07-21",
-    "hash": "4671dfa475b53ee439a46cfc7bfce466271604d883dc59ea1d50b6beac81c49d",
+    "hash": "c4047f4cfbb748f44f493dcff44e096f6f8f552c04b7a32f42771a14586fcab8",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -36,24 +36,25 @@
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
       "demand": {
-        "315.00": "29194400",
-        "316.00": "29132800",
-        "317.00": "29131200",
-        "318.00": "29129600",
-        "319.00": "29128800",
-        "320.00": "29128000",
-        "321.00": "29119200",
-        "323.00": "29116000",
-        "325.00": "29115200",
-        "327.00": "29108400",
-        "328.00": "29106800",
-        "329.00": "29105200",
-        "330.00": "29100400",
-        "331.00": "29066800"
+        "315.00": "33239600",
+        "316.00": "33174800",
+        "317.00": "33172400",
+        "318.00": "33170800",
+        "319.00": "33170000",
+        "320.00": "33169200",
+        "321.00": "33160400",
+        "323.00": "33157200",
+        "325.00": "33156400",
+        "326.00": "33148000",
+        "327.00": "33148000",
+        "328.00": "33146400",
+        "329.00": "33144800",
+        "330.00": "33140000",
+        "331.00": "33102400"
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-14T16:08:51.980333+05:30"
+    "last_checked": "2026-07-14T17:31:09.622451+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026": {
     "name": "Devson",
@@ -103,6 +104,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-14T16:08:52.775908+05:30"
+    "last_checked": "2026-07-14T17:31:10.621413+05:30"
   }
 }
