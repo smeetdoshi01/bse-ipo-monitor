@@ -38,7 +38,7 @@
       "demand": {},
       "api_status": "success"
     },
-    "last_checked": "2026-07-14T05:03:42.937437+05:30"
+    "last_checked": "2026-07-14T06:33:13.850745+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026": {
     "name": "Devson",
@@ -88,6 +88,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-14T05:03:43.816941+05:30"
+    "last_checked": "2026-07-14T06:33:14.576728+05:30"
   }
 }
