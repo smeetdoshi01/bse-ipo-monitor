@@ -54,7 +54,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-14T09:48:26.747843+05:30"
+    "last_checked": "2026-07-14T11:59:54.991263+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
@@ -111,7 +111,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
       "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-14T09:48:32.452171+05:30"
+    "last_checked": "2026-07-14T11:59:59.994985+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
@@ -160,14 +160,14 @@
       "subscription.Total Bids": "632225300",
       "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-14T09:48:37.871752+05:30"
+    "last_checked": "2026-07-14T12:00:06.008133+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "4ec7e13a47b99931a0b4f216bd7b1854d78f38bf2df3803bdb08ff949c3106c7",
+    "hash": "52a494da67e27e73072d6607dd6c2d3c9b164213b927c6625b96bd2f193fa815",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
@@ -208,16 +208,48 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "demand.-": "-"
+      "subscription.Subscription (x)": "0.15",
+      "subscription.Total Bids": "18288114",
+      "subscription.Bids at Cut-off": "10201386",
+      "demand.Cut-Off": "1,02,01,386",
+      "demand.574": "1,81,86,324",
+      "demand.573": "1,81,88,092",
+      "demand.572": "1,81,89,184",
+      "demand.571": "1,81,89,314",
+      "demand.570": "1,81,95,112",
+      "demand.569": "1,81,95,216",
+      "demand.568": "1,81,95,476",
+      "demand.567": "1,81,96,022",
+      "demand.565": "1,81,99,428",
+      "demand.564": "1,82,00,442",
+      "demand.563": "1,82,00,468",
+      "demand.562": "1,82,00,728",
+      "demand.561": "1,82,01,040",
+      "demand.560": "1,82,08,970",
+      "demand.559": "1,82,09,204",
+      "demand.558": "1,82,09,542",
+      "demand.557": "1,82,09,750",
+      "demand.556": "1,82,10,114",
+      "demand.555": "1,82,17,472",
+      "demand.554": "1,82,18,824",
+      "demand.553": "1,82,18,850",
+      "demand.552": "1,82,19,500",
+      "demand.551": "1,82,20,462",
+      "demand.550": "1,82,38,792",
+      "demand.549": "1,82,41,184",
+      "demand.548": "1,82,41,756",
+      "demand.547": "1,82,43,212",
+      "demand.546": "1,82,47,138",
+      "demand.545": "1,82,88,114"
     },
-    "last_checked": "2026-07-14T09:48:39.730490+05:30"
+    "last_checked": "2026-07-14T12:00:07.237271+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
     "symbol": "ALPINETEX",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "1f5f834d60a45872844b222bd2507c11efb397542306e4141b87132d3536199d",
+    "hash": "cafea866802759436d68333b106f32d3b3fafad4fcd9eeb3dbb607603f3e7d1b",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "ALPINETEX",
@@ -251,8 +283,17 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "demand.-": "-"
+      "subscription.Subscription (x)": "0.11",
+      "subscription.Total Bids": "1293762",
+      "subscription.Bids at Cut-off": "556072",
+      "demand.Cut-Off": "5,56,072",
+      "demand.105": "5,90,152",
+      "demand.104": "5,90,578",
+      "demand.103": "5,91,288",
+      "demand.102": "5,92,424",
+      "demand.101": "5,93,134",
+      "demand.100": "12,93,762"
     },
-    "last_checked": "2026-07-14T09:48:45.094118+05:30"
+    "last_checked": "2026-07-14T12:00:08.648474+05:30"
   }
 }
