@@ -54,7 +54,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-15T03:10:41.937346+05:30"
+    "last_checked": "2026-07-15T04:11:21.046252+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
@@ -111,7 +111,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
       "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-15T03:10:47.663725+05:30"
+    "last_checked": "2026-07-15T04:11:27.117848+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
@@ -159,7 +159,7 @@
       "subscription.Total Bids": "632225300",
       "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-15T03:10:52.836065+05:30"
+    "last_checked": "2026-07-15T04:11:32.312539+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
@@ -242,7 +242,7 @@
       "demand.546": "5,63,65,608",
       "demand.545": "5,64,44,154"
     },
-    "last_checked": "2026-07-15T03:10:58.198478+05:30"
+    "last_checked": "2026-07-15T04:11:37.627346+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -294,6 +294,6 @@
       "demand.101": "12,82,402",
       "demand.100": "22,31,956"
     },
-    "last_checked": "2026-07-15T03:11:04.230863+05:30"
+    "last_checked": "2026-07-15T04:11:43.494223+05:30"
   }
 }
