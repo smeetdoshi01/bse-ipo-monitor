@@ -54,7 +54,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-14T17:28:12.514909+05:30"
+    "last_checked": "2026-07-14T19:34:55.812900+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
@@ -111,14 +111,14 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
       "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-14T17:28:17.845902+05:30"
+    "last_checked": "2026-07-14T19:35:02.207189+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
     "symbol": "LASERPOWER",
     "series": "EQ",
     "listing_date": "2026-07-16",
-    "hash": "1816a30d57417a315b4b8b9b3e39bb25ae56729546c3df1d328caa6e8fd84072",
+    "hash": "59850bf2bac37cd74b88d2ba36f3d4db7e96a7de9d2613dc39155fd06ffde6d8",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "LASERPOWER",
@@ -156,11 +156,10 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "24.71",
       "subscription.Total Bids": "632225300",
       "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-14T17:28:23.872845+05:30"
+    "last_checked": "2026-07-14T19:35:08.322286+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
@@ -243,7 +242,7 @@
       "demand.546": "5,63,65,608",
       "demand.545": "5,64,44,154"
     },
-    "last_checked": "2026-07-14T17:28:30.850445+05:30"
+    "last_checked": "2026-07-14T19:35:14.265701+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -295,6 +294,6 @@
       "demand.101": "12,82,402",
       "demand.100": "22,31,956"
     },
-    "last_checked": "2026-07-14T17:28:36.443872+05:30"
+    "last_checked": "2026-07-14T19:35:19.732401+05:30"
   }
 }
