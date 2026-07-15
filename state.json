@@ -2,7 +2,7 @@
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4680&type=IPO&idtype=1&status=F&IPONo=7824&startdt=14%2F07%2F2026": {
     "name": "Millworks",
     "listing_date": "2026-07-21",
-    "hash": "d8a535346b1ed53c52152747aa72c69168cf130e4d9fbca30f4ee1c64011d411",
+    "hash": "cf22c834d18e139d0b66443f0d36627080a1a08af50added03f7e4527ea3db49",
     "data": {
       "details": {
         "ISBID_Detail": "1",
@@ -35,10 +35,28 @@
         "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
         "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
       },
-      "demand": {},
+      "demand": {
+        "315.00": "73875200",
+        "316.00": "73740800",
+        "317.00": "73735200",
+        "318.00": "73731200",
+        "319.00": "73728800",
+        "320.00": "73727200",
+        "321.00": "73702000",
+        "322.00": "73698800",
+        "323.00": "73698000",
+        "324.00": "73696400",
+        "325.00": "73695600",
+        "326.00": "73680000",
+        "327.00": "73680000",
+        "328.00": "73677600",
+        "329.00": "73672400",
+        "330.00": "73661200",
+        "331.00": "73573600"
+      },
       "api_status": "success"
     },
-    "last_checked": "2026-07-15T09:36:16.140519+05:30"
+    "last_checked": "2026-07-15T11:56:01.836147+05:30"
   },
   "https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026": {
     "name": "Devson",
@@ -88,6 +106,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-15T09:36:17.031580+05:30"
+    "last_checked": "2026-07-15T11:56:03.248658+05:30"
   }
 }
