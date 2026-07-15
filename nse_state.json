@@ -54,7 +54,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-15T16:28:08.421262+05:30"
+    "last_checked": "2026-07-15T17:50:48.135263+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
@@ -111,7 +111,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
       "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-15T16:28:14.521376+05:30"
+    "last_checked": "2026-07-15T17:50:53.760298+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
@@ -159,14 +159,14 @@
       "subscription.Total Bids": "632225300",
       "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-15T16:28:20.239534+05:30"
+    "last_checked": "2026-07-15T17:50:58.924001+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "d35229a28330e0a14e3fd85c20367fc56e1da026eb3f1f5541709a8bc9b4f647",
+    "hash": "1a8070ad1ed6892895c35b19971ee833c9506598a1c50afbbef92f6fb1591e23",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
@@ -207,49 +207,49 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "1.80",
-      "subscription.Total Bids": "224232788",
-      "subscription.Bids at Cut-off": "73039642",
-      "demand.Cut-Off": "7,30,39,642",
-      "demand.574": "22,38,28,072",
-      "demand.573": "22,38,51,108",
-      "demand.572": "22,38,60,260",
-      "demand.571": "22,38,64,238",
-      "demand.570": "22,38,87,508",
-      "demand.569": "22,38,88,132",
-      "demand.568": "22,38,88,548",
-      "demand.567": "22,38,90,160",
-      "demand.566": "22,38,90,472",
-      "demand.565": "22,39,03,420",
-      "demand.564": "22,39,12,312",
-      "demand.563": "22,39,13,066",
-      "demand.562": "22,39,13,794",
-      "demand.561": "22,39,15,354",
-      "demand.560": "22,39,41,874",
-      "demand.559": "22,39,42,992",
-      "demand.558": "22,39,44,188",
-      "demand.557": "22,39,44,734",
-      "demand.556": "22,39,45,514",
-      "demand.555": "22,39,68,264",
-      "demand.554": "22,39,72,424",
-      "demand.553": "22,39,72,736",
-      "demand.552": "22,39,74,088",
-      "demand.551": "22,39,77,182",
-      "demand.550": "22,40,42,416",
-      "demand.549": "22,40,47,902",
-      "demand.548": "22,40,50,424",
-      "demand.547": "22,40,55,546",
-      "demand.546": "22,40,65,270",
-      "demand.545": "22,42,32,788"
+      "subscription.Subscription (x)": "1.90",
+      "subscription.Total Bids": "236730026",
+      "subscription.Bids at Cut-off": "75339446",
+      "demand.Cut-Off": "7,53,39,446",
+      "demand.574": "23,63,20,474",
+      "demand.573": "23,63,43,796",
+      "demand.572": "23,63,51,258",
+      "demand.571": "23,63,55,288",
+      "demand.570": "23,63,78,974",
+      "demand.569": "23,63,79,598",
+      "demand.568": "23,63,80,118",
+      "demand.567": "23,63,81,730",
+      "demand.566": "23,63,82,042",
+      "demand.565": "23,63,95,042",
+      "demand.564": "23,64,03,934",
+      "demand.563": "23,64,04,714",
+      "demand.562": "23,64,05,442",
+      "demand.561": "23,64,07,028",
+      "demand.560": "23,64,34,094",
+      "demand.559": "23,64,35,212",
+      "demand.558": "23,64,36,408",
+      "demand.557": "23,64,36,954",
+      "demand.556": "23,64,37,734",
+      "demand.555": "23,64,60,588",
+      "demand.554": "23,64,64,904",
+      "demand.553": "23,64,65,216",
+      "demand.552": "23,64,66,568",
+      "demand.551": "23,64,69,818",
+      "demand.550": "23,65,36,170",
+      "demand.549": "23,65,41,838",
+      "demand.548": "23,65,44,360",
+      "demand.547": "23,65,49,924",
+      "demand.546": "23,65,59,804",
+      "demand.545": "23,67,30,026"
     },
-    "last_checked": "2026-07-15T16:28:22.259536+05:30"
+    "last_checked": "2026-07-15T17:51:04.833697+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
     "symbol": "ALPINETEX",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "2fc937cc43550f6708a84cfead14fdc7a370b97affaac3a122691c192fbfa2ae",
+    "hash": "c91f72ff0495b89572c976c08ff6abbcd882be906209b335549307a98e063fec",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "ALPINETEX",
@@ -283,17 +283,17 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "0.50",
-      "subscription.Total Bids": "6067660",
-      "subscription.Bids at Cut-off": "3906988",
-      "demand.Cut-Off": "39,06,988",
-      "demand.105": "50,80,760",
-      "demand.104": "50,84,878",
-      "demand.103": "50,88,144",
-      "demand.102": "50,91,268",
-      "demand.101": "50,96,096",
-      "demand.100": "60,67,660"
+      "subscription.Subscription (x)": "0.51",
+      "subscription.Total Bids": "6169900",
+      "subscription.Bids at Cut-off": "3981964",
+      "demand.Cut-Off": "39,81,964",
+      "demand.105": "51,82,574",
+      "demand.104": "51,86,692",
+      "demand.103": "51,89,958",
+      "demand.102": "51,93,082",
+      "demand.101": "51,98,052",
+      "demand.100": "61,69,900"
     },
-    "last_checked": "2026-07-15T16:28:28.702925+05:30"
+    "last_checked": "2026-07-15T17:51:10.913685+05:30"
   }
 }
