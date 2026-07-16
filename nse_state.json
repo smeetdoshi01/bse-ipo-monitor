@@ -1,61 +1,4 @@
 {
-  "https://www.nseindia.com/market-data/issue-information?symbol=ICELCO&series=SME&type=Active": {
-    "name": "ICELCO SME",
-    "symbol": "ICELCO",
-    "series": "SME",
-    "listing_date": "2026-07-15",
-    "hash": "8bf98f9b33a90a21e4625f24c4700e1991bea46c76c1aafc72ede4316c3955de",
-    "data": {
-      "info.Company Name": "IC Electricals Company Limited",
-      "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment mech…",
-      "info.Symbol": "ICELCO",
-      "info.Issue Period": "03-July-2026 to 07-July-2026",
-      "info.Cut-off time for UPI Mandate Confirmation": "07-July-2026 (upto 5:00 PM) The cut-off time for UPI mandate acceptance is 05:00 PM on last day of IPO bidding. Further bids with confirmed status of mandate amount blocked (RC100) shall be considered as valid applications and hence investors are advised to submit their UPI applications in IPO well…",
-      "info.Issue Size": "\"Initial Public Offer of fresh Issue up to 48,39,600 Equity Shares (including Market Maker portion of 2,42,400 Equity Shares and Anchor Allocation 13,68,000 Equity Shares)\"",
-      "info.Issue Type": "100 % Book Building",
-      "info.Price Range": "Rs.94 to Rs.99 per equity share",
-      "info.Lot Size": "1200 Equity Shares",
-      "info.Face Value": "Rs.10",
-      "info.Tick Size": "Re.1",
-      "info.IPO Market Timings": "10.00 a.m. to 5.00 p.m. (Bidding Timings on Issue Closure upto 4:00 P.M.)",
-      "info.Maximum Bid Quantity for QIB Investors": "\"32,29,200 Equity Shares (Calculated at Higher Price band)\"",
-      "info.Maximum Bid Quantity for NIB Investors": "\"23,11,200 Equity Shares (Calculated at Higher Price band)\"",
-      "info.Book Running Lead Managers": "Nexgen Financial Solutions Private Limited",
-      "info.Sponsor Bank": "Axis Bank Limited",
-      "info.Categories": "\"FI, IC, MF, FII, OTH, CO, IND and NOH\"",
-      "info.Sub-Categories applicable for UPI": "IND (upto 5 Lakhs)",
-      "info.Name of the Registrar": "Skyline Financial Services Private Limited",
-      "info.Address of the Registrar": "\" D-153A, 1st Floor, Okhla Industrial Area Phase-I, New Delhi - 110020, India \"",
-      "info.Contact person name number and Email id": "\"Mr. Anuj Rana ,011-40450193-197, ipo@skylinerta.com  \"",
-      "info.e-form link": "https://ipoforms.nseindia.com/issueforms/html/index.jsp",
-      "info.Branches of Self Certified Syndicate Banks (SCSBs) where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-      "info.Red Herring Prospectus": "https://nsearchives.nseindia.com/content/ipo/RHP_ICELCO.zip",
-      "info.Ratios / Basis of Issue Price": "https://nsearchives.nseindia.com/content/ipo/RATIOS_ICELCO.zip",
-      "info.Sample Application Forms": "https://nsearchives.nseindia.com/content/ipo/FORMS_ICELCO.zip",
-      "info.Security Parameters": "https://nsearchives.nseindia.com/content/ipo/PREANCHOR_PARAMETERS_ICELCO.zip",
-      "info.Security Parameters (Post Anchor)": "https://nsearchives.nseindia.com/content/ipo/POSTANCHOR_PARAMETERS_ICELCO.zip",
-      "info.Anchor Allocation Report": "https://nsearchives.nseindia.com/content/ipo/ANCHOR_ICELCO.zip",
-      "info.Processing of ASBA Applications": "https://archives.nseindia.com/content/circulars/IPO53197.pdf",
-      "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
-      "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
-      "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "390.83",
-      "subscription.Total Bids": "1356800400",
-      "categories.Qualified Institutional Buyers(QIBs)": "221930400 shares / 149 apps",
-      "categories.Foreign Institutional Investors(FIIs)": "40828800 shares / 34 apps",
-      "categories.Domestic Financial Institutions(Banks/ Financial Institutions(FIs)/ Insurance Companies)": "22734000 shares / 10 apps",
-      "categories.Mutual funds": "1584000 shares / 3 apps",
-      "categories.Others": "859200 shares / 211 apps",
-      "categories.Non Institutional Investors": "534082800 shares / 62537 apps",
-      "categories.Non Institutional Investors(Bid amount of more than Ten Lakh Rupees)": "435246000 shares / 38247 apps",
-      "categories.Corporates": "458400 shares / 117 apps",
-      "categories.Individuals(IND category bidding for more than 2 Lots)": "97519200 shares / 23962 apps",
-      "categories.Non Institutional Investors(Bid amount of more than Two Lakh Rupees upto Ten Lakh Rupees)": "98836800 shares / 24290 apps",
-      "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
-      "categories.Total": "1356800400 shares / 313014 apps"
-    },
-    "last_checked": "2026-07-16T22:57:07.935625+05:30"
-  },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
     "symbol": "HAPPY",
@@ -111,7 +54,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
       "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-16T22:57:13.176862+05:30"
+    "last_checked": "2026-07-17T00:13:07.430750+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
@@ -159,14 +102,14 @@
       "subscription.Total Bids": "632225300",
       "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-16T22:57:18.313058+05:30"
+    "last_checked": "2026-07-17T00:13:12.595942+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "1e870cafa8f4233f43dfc545ed96ace19bead1c37d5e115b910798314dbf5589",
+    "hash": "fd53969b486d7608b170dbf0e7197777fc5b1935f4106fdf4e13f559cae6b500",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
@@ -209,47 +152,16 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "subscription.Subscription (x)": "34.16",
       "subscription.Total Bids": "4255421638",
-      "subscription.Bids at Cut-off": "184989506",
-      "demand.Cut-Off": "18,49,89,506",
-      "demand.574": "4,25,45,08,882",
-      "demand.573": "4,25,45,67,824",
-      "demand.572": "4,25,45,86,700",
-      "demand.571": "4,25,46,03,080",
-      "demand.570": "4,25,46,61,060",
-      "demand.569": "4,25,46,62,464",
-      "demand.568": "4,25,46,64,674",
-      "demand.567": "4,25,46,68,340",
-      "demand.566": "4,25,46,69,068",
-      "demand.565": "4,25,46,91,012",
-      "demand.564": "4,25,47,10,772",
-      "demand.563": "4,25,47,12,098",
-      "demand.562": "4,25,47,14,386",
-      "demand.561": "4,25,47,17,610",
-      "demand.560": "4,25,47,71,534",
-      "demand.559": "4,25,47,72,990",
-      "demand.558": "4,25,47,75,434",
-      "demand.557": "4,25,47,76,838",
-      "demand.556": "4,25,47,79,282",
-      "demand.555": "4,25,48,17,684",
-      "demand.554": "4,25,48,26,134",
-      "demand.553": "4,25,48,27,018",
-      "demand.552": "4,25,48,28,838",
-      "demand.551": "4,25,48,36,898",
-      "demand.550": "4,25,49,61,776",
-      "demand.549": "4,25,49,71,084",
-      "demand.548": "4,25,49,75,270",
-      "demand.547": "4,25,49,86,320",
-      "demand.546": "4,25,50,08,082",
-      "demand.545": "4,25,54,21,638"
+      "subscription.Bids at Cut-off": "184989506"
     },
-    "last_checked": "2026-07-16T22:57:19.514320+05:30"
+    "last_checked": "2026-07-17T00:13:18.679262+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
     "symbol": "ALPINETEX",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "627a53061de83babcc93e92c1df56ff94e7ee46127fc6e546c395b8322d144e9",
+    "hash": "ed836a9409fa83315777995b7dda48f4ad397f5c410b6edd276d2c0c3776e37f",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "ALPINETEX",
@@ -285,15 +197,8 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "subscription.Subscription (x)": "0.88",
       "subscription.Total Bids": "10624014",
-      "subscription.Bids at Cut-off": "7078558",
-      "demand.Cut-Off": "70,78,558",
-      "demand.105": "95,51,488",
-      "demand.104": "95,58,872",
-      "demand.103": "95,66,966",
-      "demand.102": "95,75,486",
-      "demand.101": "95,89,118",
-      "demand.100": "1,06,24,014"
+      "subscription.Bids at Cut-off": "7078558"
     },
-    "last_checked": "2026-07-16T22:57:24.455144+05:30"
+    "last_checked": "2026-07-17T00:13:24.161221+05:30"
   }
 }
