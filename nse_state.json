@@ -54,7 +54,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "600787200 shares / 250328 apps",
       "categories.Total": "1356800400 shares / 313014 apps"
     },
-    "last_checked": "2026-07-16T17:40:59.058541+05:30"
+    "last_checked": "2026-07-16T19:55:58.060192+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=HAPPY&series=SME&type=Active": {
     "name": "Happy Steels",
@@ -111,7 +111,7 @@
       "categories.Individual Investors (IND category bidding for 2 Lots)": "92296000 shares / 23074 apps",
       "categories.Total": "196434000 shares / 28384 apps"
     },
-    "last_checked": "2026-07-16T17:41:04.945601+05:30"
+    "last_checked": "2026-07-16T19:56:03.973675+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=LASERPOWER&series=EQ&type=Active": {
     "name": "Laser Power",
@@ -159,14 +159,14 @@
       "subscription.Total Bids": "632225300",
       "subscription.Bids at Cut-off": "49708820"
     },
-    "last_checked": "2026-07-16T17:41:10.373198+05:30"
+    "last_checked": "2026-07-16T19:56:09.248635+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=SBIFUNDS&series=EQ&type=Forthcoming": {
     "name": "SBI Fund Management",
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "07eeff46a4702fe47d623f573d5af303fce9dcb876e73ecd10f9bcd9459f380b",
+    "hash": "1e870cafa8f4233f43dfc545ed96ace19bead1c37d5e115b910798314dbf5589",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
@@ -208,41 +208,41 @@
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "subscription.Subscription (x)": "34.16",
-      "subscription.Total Bids": "4255421508",
-      "subscription.Bids at Cut-off": "184989402",
-      "demand.Cut-Off": "18,49,89,402",
-      "demand.574": "4,25,45,08,752",
-      "demand.573": "4,25,45,67,694",
-      "demand.572": "4,25,45,86,570",
-      "demand.571": "4,25,46,02,950",
-      "demand.570": "4,25,46,60,930",
-      "demand.569": "4,25,46,62,334",
-      "demand.568": "4,25,46,64,544",
-      "demand.567": "4,25,46,68,210",
-      "demand.566": "4,25,46,68,938",
-      "demand.565": "4,25,46,90,882",
-      "demand.564": "4,25,47,10,642",
-      "demand.563": "4,25,47,11,968",
-      "demand.562": "4,25,47,14,256",
-      "demand.561": "4,25,47,17,480",
-      "demand.560": "4,25,47,71,404",
-      "demand.559": "4,25,47,72,860",
-      "demand.558": "4,25,47,75,304",
-      "demand.557": "4,25,47,76,708",
-      "demand.556": "4,25,47,79,152",
-      "demand.555": "4,25,48,17,554",
-      "demand.554": "4,25,48,26,004",
-      "demand.553": "4,25,48,26,888",
-      "demand.552": "4,25,48,28,708",
-      "demand.551": "4,25,48,36,768",
-      "demand.550": "4,25,49,61,646",
-      "demand.549": "4,25,49,70,954",
-      "demand.548": "4,25,49,75,140",
-      "demand.547": "4,25,49,86,190",
-      "demand.546": "4,25,50,07,952",
-      "demand.545": "4,25,54,21,508"
+      "subscription.Total Bids": "4255421638",
+      "subscription.Bids at Cut-off": "184989506",
+      "demand.Cut-Off": "18,49,89,506",
+      "demand.574": "4,25,45,08,882",
+      "demand.573": "4,25,45,67,824",
+      "demand.572": "4,25,45,86,700",
+      "demand.571": "4,25,46,03,080",
+      "demand.570": "4,25,46,61,060",
+      "demand.569": "4,25,46,62,464",
+      "demand.568": "4,25,46,64,674",
+      "demand.567": "4,25,46,68,340",
+      "demand.566": "4,25,46,69,068",
+      "demand.565": "4,25,46,91,012",
+      "demand.564": "4,25,47,10,772",
+      "demand.563": "4,25,47,12,098",
+      "demand.562": "4,25,47,14,386",
+      "demand.561": "4,25,47,17,610",
+      "demand.560": "4,25,47,71,534",
+      "demand.559": "4,25,47,72,990",
+      "demand.558": "4,25,47,75,434",
+      "demand.557": "4,25,47,76,838",
+      "demand.556": "4,25,47,79,282",
+      "demand.555": "4,25,48,17,684",
+      "demand.554": "4,25,48,26,134",
+      "demand.553": "4,25,48,27,018",
+      "demand.552": "4,25,48,28,838",
+      "demand.551": "4,25,48,36,898",
+      "demand.550": "4,25,49,61,776",
+      "demand.549": "4,25,49,71,084",
+      "demand.548": "4,25,49,75,270",
+      "demand.547": "4,25,49,86,320",
+      "demand.546": "4,25,50,08,082",
+      "demand.545": "4,25,54,21,638"
     },
-    "last_checked": "2026-07-16T17:41:15.985829+05:30"
+    "last_checked": "2026-07-16T19:56:10.920816+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -294,6 +294,6 @@
       "demand.101": "95,89,118",
       "demand.100": "1,06,24,014"
     },
-    "last_checked": "2026-07-16T17:41:21.663102+05:30"
+    "last_checked": "2026-07-16T19:56:16.200077+05:30"
   }
 }
