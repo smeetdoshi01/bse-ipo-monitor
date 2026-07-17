@@ -56,56 +56,6 @@
       },
       "api_status": "success"
     },
-    "last_checked": "2026-07-17T22:57:45.456046+05:30"
-  },
-  "https://www.bseindia.com/markets/publicissues/displayipo?id=4673&type=IPO&idtype=1&status=L&IPONo=7819&startdt=09%2F07%2F2026": {
-    "name": "Devson",
-    "listing_date": "2026-07-16",
-    "hash": "713770aad93c9871034c4eafca0beaadf7b225cb736fa814baa1f8f35a8c9189",
-    "data": {
-      "details": {
-        "ISBID_Detail": "1",
-        "IPO_NO": "7,819",
-        "ScripCode": "4,673",
-        "ScripName": "DEVSON CATALYST LIMITED",
-        "Security Type": "Equity",
-        "Symbol": "DEVSON",
-        "Issue Period": "09 Jul 2026 to 13 Jul 2026",
-        "Issue Size – No. of Shares": "25,87,200",
-        "Price Band": "112.00-118.00",
-        "Price-Band Advertisement": "https://www.bseindia.com/downloads/ipo/Price Band Advt_070720261547.pdf",
-        "IPO Categories": "FI, IC, MF, FII, OTH, CO, IND, NOH, EMP",
-        "UPI Categories": "IND, EMP",
-        "Cut off Amount (Rs.)": "EMP - 500000",
-        "Face Value": "10",
-        "Tick Size": "1",
-        "Market Lot": "1,200",
-        "Minimum Bid Quantity": "2,400",
-        "Maximum Bid Quantity for Qualified Institutional Investors": "23,42,400",
-        "Maximum Bid Quantity for Non-Institutional Investors": "16,80,000",
-        "Book Running Lead Manager": "JJ IPO Advisors Private Limited^13th Floor, 1301 & 1302Yash Anant, Ashram Road, Ashram Road PO|||Ahmedabad City|Gujarat|380009|||info@jjipoadvisors.com|Chetan Jagetiya",
-        "Registrar": "MUFG Intime India Private Limited^C-101, 1st Floor, 247 ParkLal Bahadur Shastri MargVikhroli West||||||||devsoncatalyst.smeipo@in.mpms.mufg.com",
-        "Sponsor Bank": "Kotak Mahindra Bank Limited^Kotak Infiniti, 6th Floor, Building No. 21, Infinity Park, Off Western Express HighwayGeneral AK Vaidya Marg, Malad (E)||||||||cmsipo@kotak.com|Sumit Panchal",
-        "Prospectus & GID": "https://www.bseindia.com/downloads/ipo/RHP&GID_070720261547.zip",
-        "Blank ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BlankForms_New.aspx?ipo=4673",
-        "Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/BidEntryQuick_New.aspx?ipo=4673",
-        "Revised Online ASBA Form": "https://ibbseforms.bseindia.com/ASBAFORMS/SrchBid.aspx?ipo=4673",
-        "Registrars to an Issue and Share Transfer Agents/Depository Participants": "https://www.bseindia.com/Static/PublicIssues/RtaDp.aspx",
-        "Branches of SCSBs where syndicate / sub syndicate member to submit ASBA form": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=34",
-        "List of SCSBs for Syndicate ASBA and under ASBA facility": "http://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=35",
-        "Self Certified Syndicate Banks eligible as Issuer Banks for UPI": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=40"
-      },
-      "demand": {
-        "112.00": "530534400",
-        "113.00": "529910400",
-        "114.00": "529861200",
-        "115.00": "529831200",
-        "116.00": "529747200",
-        "117.00": "529650000",
-        "118.00": "529426800"
-      },
-      "api_status": "success"
-    },
-    "last_checked": "2026-07-17T22:57:46.495784+05:30"
+    "last_checked": "2026-07-18T00:03:21.978005+05:30"
   }
 }
