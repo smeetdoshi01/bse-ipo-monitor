@@ -49,14 +49,14 @@
       "subscription.Total Bids": "4255421638",
       "subscription.Bids at Cut-off": "184989506"
     },
-    "last_checked": "2026-07-20T10:25:59.259954+05:30"
+    "last_checked": "2026-07-20T13:44:39.367364+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
     "symbol": "ALPINETEX",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "627a53061de83babcc93e92c1df56ff94e7ee46127fc6e546c395b8322d144e9",
+    "hash": "ed836a9409fa83315777995b7dda48f4ad397f5c410b6edd276d2c0c3776e37f",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "ALPINETEX",
@@ -92,15 +92,8 @@
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
       "subscription.Subscription (x)": "0.88",
       "subscription.Total Bids": "10624014",
-      "subscription.Bids at Cut-off": "7078558",
-      "demand.Cut-Off": "70,78,558",
-      "demand.105": "95,51,488",
-      "demand.104": "95,58,872",
-      "demand.103": "95,66,966",
-      "demand.102": "95,75,486",
-      "demand.101": "95,89,118",
-      "demand.100": "1,06,24,014"
+      "subscription.Bids at Cut-off": "7078558"
     },
-    "last_checked": "2026-07-20T10:27:21.375328+05:30"
+    "last_checked": "2026-07-20T13:45:41.272939+05:30"
   }
 }
