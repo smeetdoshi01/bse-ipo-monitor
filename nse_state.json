@@ -4,7 +4,7 @@
     "symbol": "SBIFUNDS",
     "series": "EQ",
     "listing_date": "2026-07-21",
-    "hash": "fd53969b486d7608b170dbf0e7197777fc5b1935f4106fdf4e13f559cae6b500",
+    "hash": "cbe9e0463cb3326141cca7802112c76670d9914888649c203e3ed18b41fc8ddb",
     "data": {
       "info.None": "\"*As per SEBI circular no SEBI/HO/CFD/DIL2/CIR/P/2019/76 dated 28 June 28 2019 all are requested to comply with the provisions of the aforementioned circular which states as below: Intermediaries shall retain physical application forms submitted by retail individual investors with UPI as a payment m…",
       "info.Symbol": "SBIFUNDS",
@@ -45,11 +45,10 @@
       "info.List of mobile applications accepting UPI as Payment Option": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=43",
       "info.Video link  for UPI based ASBA process": "https://youtu.be/UJ394m2Q3rg",
       "info.Video link  for BHIM UPI Registration": "https://youtu.be/cIUJOIH0x4c",
-      "subscription.Subscription (x)": "34.16",
       "subscription.Total Bids": "4255421638",
       "subscription.Bids at Cut-off": "184989506"
     },
-    "last_checked": "2026-07-20T13:44:39.367364+05:30"
+    "last_checked": "2026-07-20T16:46:52.733836+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -94,6 +93,6 @@
       "subscription.Total Bids": "10624014",
       "subscription.Bids at Cut-off": "7078558"
     },
-    "last_checked": "2026-07-20T13:45:41.272939+05:30"
+    "last_checked": "2026-07-20T16:47:54.819205+05:30"
   }
 }
