@@ -48,7 +48,7 @@
       "subscription.Total Bids": "4255421638",
       "subscription.Bids at Cut-off": "184989506"
     },
-    "last_checked": "2026-07-21T23:31:13.992043+05:30"
+    "last_checked": "2026-07-22T01:14:50.042998+05:30"
   },
   "https://www.nseindia.com/market-data/issue-information?symbol=ALPINETEX&series=EQ&type=Forthcoming": {
     "name": "Alpine",
@@ -92,6 +92,6 @@
       "subscription.Total Bids": "10624014",
       "subscription.Bids at Cut-off": "7078558"
     },
-    "last_checked": "2026-07-21T23:31:19.551653+05:30"
+    "last_checked": "2026-07-22T01:14:55.189881+05:30"
   }
 }
